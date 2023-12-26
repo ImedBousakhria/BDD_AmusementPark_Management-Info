@@ -13,8 +13,11 @@
     "@devexpress/dx-react-core": "^4.0.6",
     "@devexpress/dx-react-scheduler": "^4.0.6",
     "@devexpress/dx-react-scheduler-material-ui": "^4.0.6",
+    "@mui/material": "^5.15.2",
+    "@mui/x-date-pickers": "^6.18.6",
     "@syncfusion/ej2-react-calendars": "^24.1.41",
     "@syncfusion/ej2-react-dropdowns": "^24.1.41",
+    "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-color": "^2.19.3",
     "react-dom": "^18.2.0"
