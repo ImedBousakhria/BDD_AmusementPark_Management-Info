@@ -43,14 +43,10 @@ const Schedule = () => {
         data = [...data, { id: startingAddedId, ...added }];
       }
       if (changed) {
-        let appointmentColor = selectedColor.hex || selectedColor;
+        appointm
         data = data.map((appointment) =>
           changed[appointment.id]
-            ? {
-                ...appointment,
-                ...changed[appointment.id],
-                color: appointmentColor,
-              }
+            ? { ...appointment, ...changed[appointment.id] }
             : appointment
         );
       }

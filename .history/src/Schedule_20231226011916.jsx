@@ -43,16 +43,12 @@ const Schedule = () => {
         data = [...data, { id: startingAddedId, ...added }];
       }
       if (changed) {
-        let appointmentColor = selectedColor.hex || selectedColor;
         data = data.map((appointment) =>
           changed[appointment.id]
-            ? {
-                ...appointment,
-                ...changed[appointment.id],
-                color: appointmentColor,
-              }
+            ? { ...appointment, ...changed[appointment.id] }
             : appointment
         );
+        data.color = 
       }
       if (deleted !== undefined) {
         data = data.filter((appointment) => appointment.id !== deleted);
