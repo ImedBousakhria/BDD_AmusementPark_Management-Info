@@ -36,14 +36,17 @@ const Schedule = () => {
     setState((prevState) => {
       let data = prevState;
       if (added) {
-        console.log(added);
         added.color = selectedColor.hex || selectedColor;
+        console.log(added);
+
         const startingAddedId =
           data.length > 0 ? data[data.length - 1].id + 1 : 0;
         data = [...data, { id: startingAddedId, ...added }];
       }
       if (changed) {
+        changed.color = selectedColor.hex || selectedColor;
         console.log(changed);
+
         data = data.map((appointment) =>
           changed[appointment.id]
             ? { ...appointment, ...changed[appointment.id] }
@@ -93,14 +96,14 @@ const Schedule = () => {
 
   const Appointment = ({ children, style, data, ...restProps }) => {
     return (
-      <div onClick={() => console.log(data)}>
+      <div onClick={() => console.log(data, selectedColor)}>
         <Appointments.Appointment
           {...restProps}
           style={{
             ...style,
-            backgroundColor: data.color + "70",
+            backgroundColor: data.color + "",
             borderRadius: "8px",
-            border: "1.5px solid " + data.color,
+            border: "1.5px solid #C3C2FF",
             color: "#fff",
           }}
         >

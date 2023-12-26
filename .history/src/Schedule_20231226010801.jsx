@@ -19,7 +19,7 @@ import {
 
 const Schedule = () => {
   const colors = ["#C3C2FF", "#66D1F3", "#F1B7C1", "#FBCB77"];
-  const [selectedColor, setSelectedColor] = useState("#C3C2FF"); // Initial color
+  const [selectedColor, setSelectedColor] = useState("#ff0000"); // Initial color
 
   const appointments = [
     {
@@ -27,7 +27,7 @@ const Schedule = () => {
       title: "Test Task",
       startDate: "2023-12-25T11:00",
       endDate: "2023-12-25T12:00",
-      color: "#C3C2FF",
+      color: "#C3C2FF"
     },
   ];
   const [state, setState] = useState(appointments);
@@ -37,10 +37,13 @@ const Schedule = () => {
       let data = prevState;
       if (added) {
         console.log(added);
-        added.color = selectedColor.hex || selectedColor;
+        added.color = selectedColor
         const startingAddedId =
           data.length > 0 ? data[data.length - 1].id + 1 : 0;
-        data = [...data, { id: startingAddedId, ...added }];
+        data = [
+          ...data,
+          { id: startingAddedId, ...added },
+        ];
       }
       if (changed) {
         console.log(changed);
@@ -93,14 +96,14 @@ const Schedule = () => {
 
   const Appointment = ({ children, style, data, ...restProps }) => {
     return (
-      <div onClick={() => console.log(data)}>
+      <div onClick={() => console.log(data, selectedColor)}>
         <Appointments.Appointment
           {...restProps}
           style={{
             ...style,
-            backgroundColor: data.color + "70",
+            backgroundColor: data.color,
             borderRadius: "8px",
-            border: "1.5px solid " + data.color,
+            border: "1.5px solid #C3C2FF",
             color: "#fff",
           }}
         >

@@ -93,14 +93,14 @@ const Schedule = () => {
 
   const Appointment = ({ children, style, data, ...restProps }) => {
     return (
-      <div onClick={() => console.log(data)}>
+      <div onClick={() => console.log(data, selectedColor)}>
         <Appointments.Appointment
           {...restProps}
           style={{
             ...style,
             backgroundColor: data.color + "70",
             borderRadius: "8px",
-            border: "1.5px solid " + data.color,
+            border: "1.5px solid " + "",
             color: "#fff",
           }}
         >

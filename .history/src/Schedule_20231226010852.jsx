@@ -36,19 +36,21 @@ const Schedule = () => {
     setState((prevState) => {
       let data = prevState;
       if (added) {
-        console.log(added);
         added.color = selectedColor.hex || selectedColor;
+        console.log(added);
+
         const startingAddedId =
           data.length > 0 ? data[data.length - 1].id + 1 : 0;
         data = [...data, { id: startingAddedId, ...added }];
       }
       if (changed) {
-        console.log(changed);
-        data = data.map((appointment) =>
+        console.log(changed)
+        
+        data = data.map((appointment) => {
           changed[appointment.id]
             ? { ...appointment, ...changed[appointment.id] }
-            : appointment
-        );
+            : appointment;
+        });
       }
       if (deleted !== undefined) {
         data = data.filter((appointment) => appointment.id !== deleted);
@@ -93,7 +95,7 @@ const Schedule = () => {
 
   const Appointment = ({ children, style, data, ...restProps }) => {
     return (
-      <div onClick={() => console.log(data)}>
+      <div onClick={() => console.log(d)}>
         <Appointments.Appointment
           {...restProps}
           style={{

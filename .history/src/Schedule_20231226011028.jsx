@@ -93,7 +93,7 @@ const Schedule = () => {
 
   const Appointment = ({ children, style, data, ...restProps }) => {
     return (
-      <div onClick={() => console.log(data)}>
+      <div onClick={() => console.log(data, selectedColor)}>
         <Appointments.Appointment
           {...restProps}
           style={{
