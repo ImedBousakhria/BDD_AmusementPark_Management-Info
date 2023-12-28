@@ -1,0 +1,40 @@
+{
+  "name": "bdd_project",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@devexpress/dx-react-core": "^4.0.6",
+    "@devexpress/dx-react-scheduler": "^4.0.6",
+    "@devexpress/dx-react-scheduler-material-ui": "^4.0.6",
+    "@mui/material": "^5.15.2",
+    "@nivo/bar": "^0.84.0",
+    "@nivo/core": "^0.84.0",
+    "@nivo/pie": "^0.84.0",
+    "install": "^0.13.0",
+    "moment": "^2.29.4",
+    "moment-timezone": "^0.5.43",
+    "npm": "^10.2.5",
+    "react": "^18.2.0",
+    "react-color": "^2.19.3",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@vitejs/plugin-react": "^4.2.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.53.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.4",
+    "tailwindcss": "^3.3.6",
+    "vite": "^5.0.0"
+  }
+}
