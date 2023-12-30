@@ -68,8 +68,8 @@ const Schedule = () => {
     {
       id: 6,
       title: "Test Task",
-      startDate: "2023-12-29T09:00Z",
-      endDate: "2023-12-29T12:30Z",
+      startDate: "2023-12-29T09:00",
+      endDate: "2023-12-29T12:30",
       color: "#66D1F3",
     },
   ];

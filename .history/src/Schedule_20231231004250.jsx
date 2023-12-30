@@ -68,8 +68,8 @@ const Schedule = () => {
     {
       id: 6,
       title: "Test Task",
-      startDate: "2023-12-29T09:00Z",
-      endDate: "2023-12-29T12:30Z",
+      startDate: "2023-12-29T09:00",
+      endDate: "2023-12-29T12:30",
       color: "#66D1F3",
     },
   ];
@@ -204,7 +204,7 @@ const Schedule = () => {
   return (
     <div className=" flex items-center justify-center py-6 h-screen bg-darkBG">
       <Paper style={{ width: "90%", height: 600 }}>
-        <Scheduler data={state}>
+        <Scheduler data={appointments}>
           <EditingState onCommitChanges={commitChanges} />
           <IntegratedEditing />
           <ConfirmationDialog />
