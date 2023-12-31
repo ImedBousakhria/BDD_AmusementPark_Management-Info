@@ -4,9 +4,14 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const mysql = require('mysql');
-
-const middleware = require('./middleware'); // assuming you have a middleware file
-const managerteam = require('./server/routes/managerteam');
+try {
+  const middleware = require('./middleware');
+  console.log('Middleware module loaded successfully:', middleware);
+} catch (error) {
+  console.error('Error loading middleware module:', error);
+}
+/* const middleware = require('./middleware'); // assuming you have a middleware file
+ */const managerteam = require('./server/routes/managerteam');
 const managerschedule = require('./server/routes/managerschedule');
 const user = require('./server/routes/manageruser');
 
