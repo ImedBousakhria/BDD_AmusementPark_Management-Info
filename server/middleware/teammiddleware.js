@@ -18,7 +18,8 @@ function restrictToTeam(req, res, next) {
     next();
   }
   
-  module.exports = restrictToTeam;
+  module.exports = { restrictToTeam}
+  ;
 
 
   //A middleware function takes three parameters: req, res, and next.req represents the request object,
