@@ -16,7 +16,9 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
 
   const [dropDownOn, setDropDown] = useState(false);
 
-  
+  const toggleDropDown = () => {
+    setDropDown(!dropDownOn);
+  };
   const sidebarVariants = {
     open: { width: "260px" }, // Width while SideBar's open
     closed: { width: "70px" }, // Closed
@@ -94,9 +96,9 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             currentPath={location.pathname}
             onClick={() => {
               toggleSidebar("on");
+              toggleDropDown();
             }}
             dropDownOn={dropDownOn}
-            setDropDown={setDropDown}
           />
 
           <SidebarButton
@@ -133,18 +135,13 @@ function SidebarButton({
   onClick,
   barState,
   dropDownOn,
-  setDropDown
 }) {
   const isCurrent = to === currentPath;
-  const toggleDropDown = () => {
-    setDropDown(!dropDownOn);
-  };
 
   return (
     <li onClick={onClick}>
       <Link
         to={to}
-        onClick={() => toggleDropDown()}
         className={`flex items-center p-2 rounded-lg transition-colors  my-4 flex-shrink-0 ${
           isCurrent ? " bg-slate-600" : " hover:bg-slate-800 "
         }

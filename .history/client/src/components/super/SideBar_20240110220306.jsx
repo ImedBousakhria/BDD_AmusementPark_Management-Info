@@ -8,15 +8,9 @@ import staff from "../../assets/nav icons/staff.svg";
 import stall from "../../assets/nav icons/stall.svg";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import CategoryDropDown from "../CategoryDropDown";
-import { stall_cat } from "../../consts";
 
 const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const location = useLocation();
-
-  const [dropDownOn, setDropDown] = useState(false);
-
-  
   const sidebarVariants = {
     open: { width: "260px" }, // Width while SideBar's open
     closed: { width: "70px" }, // Closed
@@ -42,9 +36,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
       <div>
         <div className=" flex  flex-col gap-[1rem] ">
           <h2
-            className={` cursor-pointer transform-origin-top-left duration-300 ease place-self-start ${
-              isSidebarOpen ? " rotate-180 " : ""
-            }`}
+            className={` cursor-pointer transform-origin-top-left duration-300 ease place-self-start ${isSidebarOpen ? " rotate-180 " : ""}`}
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           >
             {">"}
@@ -92,11 +84,8 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             icon={stall}
             text="Stall Management"
             currentPath={location.pathname}
-            onClick={() => {
-              toggleSidebar("on");
-            }}
-            dropDownOn={dropDownOn}
-            setDropDown={setDropDown}
+            onClick={() => toggleSidebar("on")}
+            
           />
 
           <SidebarButton
@@ -125,26 +114,13 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   );
 };
 
-function SidebarButton({
-  to,
-  icon,
-  text,
-  currentPath,
-  onClick,
-  barState,
-  dropDownOn,
-  setDropDown
-}) {
+function SidebarButton({ to, icon, text, currentPath, onClick, barState }) {
   const isCurrent = to === currentPath;
-  const toggleDropDown = () => {
-    setDropDown(!dropDownOn);
-  };
 
   return (
     <li onClick={onClick}>
       <Link
         to={to}
-        onClick={() => toggleDropDown()}
         className={`flex items-center p-2 rounded-lg transition-colors  my-4 flex-shrink-0 ${
           isCurrent ? " bg-slate-600" : " hover:bg-slate-800 "
         }
@@ -166,7 +142,6 @@ function SidebarButton({
           {text}
         </span>
       </Link>
-      {dropDownOn && <CategoryDropDown subCategories={stall_cat} />}
     </li>
   );
 }

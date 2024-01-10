@@ -96,7 +96,6 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
               toggleSidebar("on");
             }}
             dropDownOn={dropDownOn}
-            setDropDown={setDropDown}
           />
 
           <SidebarButton
@@ -133,12 +132,8 @@ function SidebarButton({
   onClick,
   barState,
   dropDownOn,
-  setDropDown
 }) {
   const isCurrent = to === currentPath;
-  const toggleDropDown = () => {
-    setDropDown(!dropDownOn);
-  };
 
   return (
     <li onClick={onClick}>

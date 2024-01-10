@@ -96,7 +96,6 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
               toggleSidebar("on");
             }}
             dropDownOn={dropDownOn}
-            setDropDown={setDropDown}
           />
 
           <SidebarButton

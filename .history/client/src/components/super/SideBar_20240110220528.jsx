@@ -8,15 +8,15 @@ import staff from "../../assets/nav icons/staff.svg";
 import stall from "../../assets/nav icons/stall.svg";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import CategoryDropDown from "../CategoryDropDown";
-import { stall_cat } from "../../consts";
 
 const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const location = useLocation();
 
   const [dropDownOn, setDropDown] = useState(false);
 
-  
+  const toggleDropDown = () => {
+    setDropDown(!dropDownOn);
+  };
   const sidebarVariants = {
     open: { width: "260px" }, // Width while SideBar's open
     closed: { width: "70px" }, // Closed
@@ -94,9 +94,9 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             currentPath={location.pathname}
             onClick={() => {
               toggleSidebar("on");
+              toggleDropDown();
             }}
             dropDownOn={dropDownOn}
-            setDropDown={setDropDown}
           />
 
           <SidebarButton
@@ -125,26 +125,14 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   );
 };
 
-function SidebarButton({
-  to,
-  icon,
-  text,
-  currentPath,
-  onClick,
-  barState,
-  dropDownOn,
-  setDropDown
-}) {
+function SidebarButton({ to, icon, text, currentPath, onClick, barState, dropDownOn }) {
   const isCurrent = to === currentPath;
-  const toggleDropDown = () => {
-    setDropDown(!dropDownOn);
-  };
+  stall_cat
 
   return (
     <li onClick={onClick}>
       <Link
         to={to}
-        onClick={() => toggleDropDown()}
         className={`flex items-center p-2 rounded-lg transition-colors  my-4 flex-shrink-0 ${
           isCurrent ? " bg-slate-600" : " hover:bg-slate-800 "
         }

@@ -129,4 +129,4 @@ export const zones = [
 
 
 // stall categories list 
-export const stall_cat = ["Food stalls", "Gift Stalls"];
+const stall_cat = ["Food stalls", "Gift Stalls"];
