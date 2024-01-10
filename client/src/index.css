@@ -70,3 +70,7 @@
   width: 100%;
 }
 
+.VerticalAppointment-title, .VerticalAppointment-textContainer {
+  @apply text-gray-400 font-light
+}
+ 

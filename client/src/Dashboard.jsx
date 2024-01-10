@@ -8,7 +8,7 @@ import TeamCard from "./components/TeamCard";
 
 const Dashboard = () => {
   return (
-    <div className=" p-6 flex justify-center">
+    <div className=" flex justify-center">
       {/* Parent wrapper */}
       <div className="flex flex-col gap-[4rem] basis-[50%]">
         {/* First column, to the right */}

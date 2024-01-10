@@ -13,6 +13,8 @@
     "@devexpress/dx-react-core": "^4.0.6",
     "@devexpress/dx-react-scheduler": "^4.0.6",
     "@devexpress/dx-react-scheduler-material-ui": "^4.0.6",
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/lab": "^4.0.0-alpha.61",
     "@mui/material": "^5.15.2",
     "@nivo/bar": "^0.84.0",
     "@nivo/core": "^0.84.0",

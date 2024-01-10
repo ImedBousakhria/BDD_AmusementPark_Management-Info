@@ -46,6 +46,7 @@ const LandingPage = () => {
         id="hero"
         className="h-screen flex  w-screen justify-center my-10 mx-40 "
         data-aos="fade-up"
+        data-aos-duration="1000"
       >
         {/* first section */}
         <div className=" ml-[8%] w-[35%] mt-[10%]  ">
@@ -70,6 +71,7 @@ const LandingPage = () => {
       <section
         id="services"
         data-aos="fade-up"
+        data-aos-duration="1000"
         className=" bg-grad flex flex-col items-center w-screen z-20 h-[85vh]"
       >
         {/* second section */}
@@ -119,6 +121,7 @@ const LandingPage = () => {
       <section
         id="events"
         data-aos="fade-up"
+        data-aos-duration="1000"
         className="bg-primaryBG h-[90vh] mb-20 flex flex-col items-center justify-center w-screen z-20"
       >
         {/* third section */}
@@ -128,7 +131,8 @@ const LandingPage = () => {
 
       <section
         id="upcoming"
-        data-aos="fade-up"
+        data-aos="fade-left"
+        data-aos-duration="1000"
         className="bg-primaryBG h-screen flex flex-col items-center w-screen px-40 mx-auto "
       >
         {/* fourth section */}
@@ -153,7 +157,8 @@ const LandingPage = () => {
 
       <section
         id="about"
-        data-aos="fade-up"
+        data-aos="fade-right"
+        data-aos-duration="1000"
         className="bg-primaryBG h-screen w-screen flex items-center justify-center px-6 gap-[6rem]"
       >
         {/* fifth section */}

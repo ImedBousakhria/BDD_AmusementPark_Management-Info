@@ -7,10 +7,7 @@ import {
   IntegratedEditing,
 } from "@devexpress/dx-react-scheduler";
 
-import {
-  TextField,
-  Paper,
-} from "@mui/material";
+import { TextField, Paper } from "@mui/material";
 import {
   Scheduler,
   WeekView,
@@ -22,6 +19,8 @@ import {
   DragDropProvider,
 } from "@devexpress/dx-react-scheduler-material-ui";
 import SideBar from "./components/super/SideBar";
+import Selector from "./components/Selector";
+import GameCard from "./components/GameCard";
 
 const Schedule = () => {
   const appointments = [
@@ -115,7 +114,15 @@ const Schedule = () => {
     });
   };
 
-  const colors = ["#C3C2FF", "#66D1F3", "#F1B7C1", "#FBCB77"];
+  const colors = [
+    "#C3C2FF",
+    "#66D1F3",
+    "#F1B7C1",
+    "#FBCB77",
+    "#E3E9BE",
+    "#FFCEAB",
+    "#A7EAD1",
+  ];
 
   const FormBasicLayout = (props) => {
     const { onFieldChange, appointmentData } = props;
@@ -126,31 +133,29 @@ const Schedule = () => {
 
     return (
       <AppointmentForm.BasicLayout {...props}>
-        <TextField
+        {/* <TextField
           label="Title"
           value={appointmentData?.title}
           onChange={(e) => onFieldChange({ title: e.target.value })}
-        />
-        <CirclePicker
+        /> */}
+        <div className="flex flex-col my-6">
+          Pick a background color
+          <CirclePicker
           color={selectedColorRef.current}
           onChange={handleChange}
           circleSize={24}
           colors={colors}
+          width="100%"
         />
-        <div onClick={() => console.log(props, appointmentData)}>
-          here Click
         </div>
+        
       </AppointmentForm.BasicLayout>
     );
   };
 
   const FormLayout = (props) => {
     const { basicLayoutComponent, commandLayoutComponent } = props;
-    return (
-      <AppointmentForm.Layout {...props}>
-        <div onClick={() => console.log(props)}>here Click</div>
-      </AppointmentForm.Layout>
-    );
+    return <AppointmentForm.Layout {...props}></AppointmentForm.Layout>;
   };
 
   const FormOverlay = (props) => {
@@ -207,8 +212,8 @@ const Schedule = () => {
   };
 
   return (
-    <div className="flex p-6 h-screen bg-darkBG">
-      <Paper style={{ width: "90%", height: 600 }}>
+    <div className="flex flex-col h-screen bg-darkBG">
+      <Paper style={{ width: "100%", height: 650, borderRadius: 10 }}>
         <Scheduler data={state}>
           <EditingState onCommitChanges={commitChanges} />
           <IntegratedEditing />
@@ -232,6 +237,8 @@ const Schedule = () => {
           />
         </Scheduler>
       </Paper>
+      <GameCard />
+
     </div>
   );
 };

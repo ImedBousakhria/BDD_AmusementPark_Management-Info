@@ -12,13 +12,13 @@ import { motion } from "framer-motion";
 const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const location = useLocation();
   const sidebarVariants = {
-    open: { width: "260px"  }, // Width while SideBar's open
-    closed: { width: "70px"  }, // Closed
+    open: { width: "260px" }, // Width while SideBar's open
+    closed: { width: "70px" }, // Closed
   };
 
   const sidebarTransition = {
     type: "tween",
-    duration: 0.2,
+    duration: 0.3,
   };
 
   const toggleSidebar = (state) => {
@@ -44,9 +44,11 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           <img
             src={logo}
             alt="Your Logo"
-            className={`${
-              isSidebarOpen ? "w-24 mt-4 " : " w-16 mx-auto"
-            } transition delay-1000 duration-700 `}
+            className={`transition-transform origin-left duration-300      ${
+              isSidebarOpen ? " scale-90" : ""
+            }
+                
+            } `}
           />
         </div>
       </div>
@@ -54,7 +56,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
         <ul className="">
           <SidebarButton
             barState={isSidebarOpen}
-            to="/dashboard"
+            to="/home"
             icon={dashboard}
             text="Dashboard"
             currentPath={location.pathname}
@@ -62,7 +64,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           />
           <SidebarButton
             barState={isSidebarOpen}
-            to="/schedule"
+            to="/Staff"
             icon={staff}
             text="Staff Management"
             currentPath={location.pathname}
@@ -70,7 +72,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           />
           <SidebarButton
             barState={isSidebarOpen}
-            to="/schedule"
+            to="/Attraction"
             icon={game}
             text="Attraction games"
             currentPath={location.pathname}
@@ -78,7 +80,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           />
           <SidebarButton
             barState={isSidebarOpen}
-            to="/schedule"
+            to="/Stall"
             icon={stall}
             text="Stall Management"
             currentPath={location.pathname}
@@ -99,7 +101,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           />
           <SidebarButton
             barState={isSidebarOpen}
-            to="/schedule"
+            to="/Event"
             icon={event}
             text="Event"
             currentPath={location.pathname}
@@ -118,12 +120,10 @@ function SidebarButton({ to, icon, text, currentPath, onClick, barState }) {
     <li onClick={onClick}>
       <Link
         to={to}
-        className={`flex items-center p-2 rounded-lg transition-colors my-4 flex-shrink-0 ${
+        className={`flex items-center p-2 rounded-lg transition-colors  my-4 flex-shrink-0 ${
           isCurrent ? " bg-slate-600" : " hover:bg-slate-800 "
         }
-            ${barState ? "" : ""}
-            
-         `}
+          `}
       >
         {/* <i className={`${icon} text-xl mr-2`} /> */}
         <img
@@ -131,11 +131,15 @@ function SidebarButton({ to, icon, text, currentPath, onClick, barState }) {
           className={` ${barState ? "  " : "  "} h-6 w-6 mr-10`}
           alt="notification"
         />
-        {barState ? (
-          <span className=" min-w-max font-semibold monstserrat text-white">
-            {text}
-          </span>
-        ) : null}
+
+        <span
+          className={`    transition-transform origin-left duration-300      ${
+            barState ? "scale-100" : "scale-0"
+          }
+          min-w-max font-semibold monstserrat text-white `}
+        >
+          {text}
+        </span>
       </Link>
     </li>
   );

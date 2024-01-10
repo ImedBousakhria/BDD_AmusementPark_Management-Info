@@ -7,7 +7,11 @@ const HomeLayout = ({ pageComponent }) => {
 
   return (
     <div className=" flex bg-darkBG">
-      <div className={`${isSidebarOpen ? " basis-[20%]  " : "basis-[7.7%]"}`}>
+      <div
+        className={` transition-all duration-300 ${
+          isSidebarOpen ? " basis-[17%] " : " basis-[9%]"
+        } `}
+      >
         <SideBar
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
@@ -15,11 +19,10 @@ const HomeLayout = ({ pageComponent }) => {
       </div>
 
       <div
-        className={`${
-          isSidebarOpen ? "   " : " "
-        } flex flex-col h-full w-full  `}
+        className={` ${
+          isSidebarOpen ? " basis-[80%] " : " basis-[80%]"
+        } h-full w-full m-6 `}
       >
-        <TopBar />
         {pageComponent}
       </div>
     </div>

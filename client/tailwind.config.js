@@ -13,10 +13,14 @@ module.exports = {
         primaryBG: "#272741",
         lightBG: "#4A4A5F",
         darkBG: "#151523",
+
         creamYellow: "#FBCB77",
         creamPink: "#F1B7C1",
         creamBlue: "#66D1F3",
-        creamPurple: "#BBB4D7"
+        creamPurple: "#BBB4D7",
+        creamGreen: "#A7EAD1",
+        creamOrange: "#FFCEAB",
+        creamLime: "#E3E9BE"
 
       },
     },

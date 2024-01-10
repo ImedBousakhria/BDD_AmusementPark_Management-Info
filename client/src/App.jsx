@@ -11,6 +11,10 @@ import LandingPage from "./LandingPage.jsx";
 import Schedule from "./Schedule.jsx";
 import Dashboard from "./Dashboard.jsx";
 import HomeLayout from "./components/super/HomeLayout.jsx";
+import Attractions from "./Attractions.jsx";
+import Event from "./Event.jsx";
+import Stall from "./Stall.jsx";
+import Staff from "./Staff.jsx";
 
 const App = () => {
   return (
@@ -23,11 +27,27 @@ const App = () => {
         <Route
           path={"/Schedule"}
           element={<HomeLayout pageComponent={<Schedule />} />}
-        ></Route>
+        />
         <Route
-          path={"/Dashboard"}
+          path={"/Home"}
           element={<HomeLayout pageComponent={<Dashboard />} />}
-        ></Route>
+        />
+        <Route
+          path={"/Attraction"}
+          element={<HomeLayout pageComponent={<Attractions />} />}
+        />
+        <Route
+          path={"/Event"}
+          element={<HomeLayout pageComponent={<Event />} />}
+        />
+        <Route
+          path={"/Stall"}
+          element={<HomeLayout pageComponent={<Stall />} />}
+        />
+        <Route
+          path={"/Staff"}
+          element={<HomeLayout pageComponent={<Staff />} />}
+        />
       </Routes>
     </BrowserRouter>
   );
