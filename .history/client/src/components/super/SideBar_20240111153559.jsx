@@ -152,7 +152,7 @@ function SidebarButton({
   };
 
   return (
-    <li className=" list-none w-full" onClick={onClick}>
+    <li className=" list-none" onClick={onClick}>
       <Link
         to={to}
         onClick={() => toggleDropDown()}

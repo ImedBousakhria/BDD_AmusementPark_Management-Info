@@ -49,7 +49,7 @@ const App = () => {
           element={<HomeLayout pageComponent={<Staff />} />}
         />
         <Route
-          path={"/Settings"}
+          path={"/Staff"}
           element={<HomeLayout pageComponent={<Staff />} />}
         />
       </Routes>

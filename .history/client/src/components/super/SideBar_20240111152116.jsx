@@ -18,6 +18,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
 
   const [dropDownOn, setDropDown] = useState(false);
 
+  
   const sidebarVariants = {
     open: { width: "260px" }, // Width while SideBar's open
     closed: { width: "70px" }, // Closed
@@ -40,7 +41,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
       animate={isSidebarOpen ? "open" : "closed"}
       className={`fixed h-screen bg-lightBG text-white p-4 flex flex-col `}
     >
-      
+      <div>
         <div className=" flex  flex-col gap-[1rem] ">
           <h2
             className={` cursor-pointer transform-origin-top-left duration-300 ease place-self-start ${
@@ -60,9 +61,9 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             } `}
           />
         </div>
-    
+      </div>
       <div className="mt-10">
-        <ul className="w-[220px]">
+        <ul className="">
           <SidebarButton
             barState={isSidebarOpen}
             to="/home"
@@ -122,16 +123,17 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           />
         </ul>
       </div>
-      <div className="flex h-full  items-end">
-        <SidebarButton
-          barState={isSidebarOpen}
-          to="/Settings"
-          icon={settings}
-          text="Settings"
-          currentPath={location.pathname}
-          onClick={() => toggleSidebar("on")}
-        />
-      </div>
+            <div>
+              <SidebarButton
+            barState={isSidebarOpen}
+            to="/Settings"
+            icon={settings}
+            text="Settings"
+            currentPath={location.pathname}
+            onClick={() => toggleSidebar("on")}
+          />
+            </div>
+      
     </motion.div>
   );
 };
@@ -144,7 +146,7 @@ function SidebarButton({
   onClick,
   barState,
   dropDownOn,
-  setDropDown,
+  setDropDown
 }) {
   const isCurrent = to === currentPath;
   const toggleDropDown = () => {
@@ -152,7 +154,7 @@ function SidebarButton({
   };
 
   return (
-    <li className=" list-none w-full" onClick={onClick}>
+    <li className=" list-none" onClick={onClick}>
       <Link
         to={to}
         onClick={() => toggleDropDown()}

@@ -60,7 +60,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             } `}
           />
         </div>
-    
+      </div>
       <div className="mt-10">
         <ul className="w-[220px]">
           <SidebarButton
@@ -122,7 +122,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           />
         </ul>
       </div>
-      <div className="flex h-full  items-end">
+      <div className="flex h-full w-[400px] items-end">
         <SidebarButton
           barState={isSidebarOpen}
           to="/Settings"
@@ -152,7 +152,7 @@ function SidebarButton({
   };
 
   return (
-    <li className=" list-none w-full" onClick={onClick}>
+    <li className=" list-none" onClick={onClick}>
       <Link
         to={to}
         onClick={() => toggleDropDown()}

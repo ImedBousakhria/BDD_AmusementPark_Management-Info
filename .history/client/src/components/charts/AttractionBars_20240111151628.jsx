@@ -10,7 +10,7 @@ const allData = [
 ];
 
 const AttractionBars = () => {
-  const [activeIndex, setActiveIndex] = useState(allData.length - 1);
+  const [activeIndex, setActiveIndex] = useState(allDate.le);
   const handleBarClick = (bar, event) => {
     setActiveIndex(bar.index == activeIndex ? null : bar.index);
   };

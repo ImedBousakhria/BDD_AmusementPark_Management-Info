@@ -38,29 +38,28 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
       initial="open"
       transition={sidebarTransition}
       animate={isSidebarOpen ? "open" : "closed"}
-      className={`fixed h-screen bg-lightBG text-white p-4 flex flex-col `}
+      className={`fixed h-screen bg-lightBG text-white p-4  `}
     >
-      
-        <div className=" flex  flex-col gap-[1rem] ">
-          <h2
-            className={` cursor-pointer transform-origin-top-left duration-300 ease place-self-start ${
-              isSidebarOpen ? " rotate-180 " : ""
-            }`}
-            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          >
-            {">"}
-          </h2>
-          <img
-            src={logo}
-            alt="Your Logo"
-            className={`transition-transform origin-left duration-300      ${
-              isSidebarOpen ? " scale-90" : ""
-            }
+      <div className=" flex  flex-col gap-[1rem] ">
+        <h2
+          className={` cursor-pointer transform-origin-top-left duration-300 ease place-self-start ${
+            isSidebarOpen ? " rotate-180 " : ""
+          }`}
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+        >
+          {">"}
+        </h2>
+        <img
+          src={logo}
+          alt="Your Logo"
+          className={`transition-transform origin-left duration-300      ${
+            isSidebarOpen ? " scale-90" : ""
+          }
                 
             } `}
-          />
-        </div>
-    
+        />
+      </div>
+
       <div className="mt-10">
         <ul className="w-[220px]">
           <SidebarButton
@@ -122,7 +121,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           />
         </ul>
       </div>
-      <div className="flex h-full  items-end">
+      <div className="flex h-full w-[px] items-end">
         <SidebarButton
           barState={isSidebarOpen}
           to="/Settings"
@@ -152,7 +151,7 @@ function SidebarButton({
   };
 
   return (
-    <li className=" list-none w-full" onClick={onClick}>
+    <li className=" list-none" onClick={onClick}>
       <Link
         to={to}
         onClick={() => toggleDropDown()}

@@ -6,8 +6,6 @@ import event from "../../assets/nav icons/event.svg";
 import schedule from "../../assets/nav icons/schedule.svg";
 import staff from "../../assets/nav icons/staff.svg";
 import stall from "../../assets/nav icons/stall.svg";
-import settings from "../../assets/nav icons/settings.svg";
-
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import CategoryDropDown from "../CategoryDropDown";
@@ -18,6 +16,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
 
   const [dropDownOn, setDropDown] = useState(false);
 
+  
   const sidebarVariants = {
     open: { width: "260px" }, // Width while SideBar's open
     closed: { width: "70px" }, // Closed
@@ -40,7 +39,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
       animate={isSidebarOpen ? "open" : "closed"}
       className={`fixed h-screen bg-lightBG text-white p-4 flex flex-col `}
     >
-      
+      <div>
         <div className=" flex  flex-col gap-[1rem] ">
           <h2
             className={` cursor-pointer transform-origin-top-left duration-300 ease place-self-start ${
@@ -60,9 +59,9 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             } `}
           />
         </div>
-    
+      </div>
       <div className="mt-10">
-        <ul className="w-[220px]">
+        <ul className="">
           <SidebarButton
             barState={isSidebarOpen}
             to="/home"
@@ -122,15 +121,8 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           />
         </ul>
       </div>
-      <div className="flex h-full  items-end">
-        <SidebarButton
-          barState={isSidebarOpen}
-          to="/Settings"
-          icon={settings}
-          text="Settings"
-          currentPath={location.pathname}
-          onClick={() => toggleSidebar("on")}
-        />
+      <div>
+        Settings
       </div>
     </motion.div>
   );
@@ -144,7 +136,7 @@ function SidebarButton({
   onClick,
   barState,
   dropDownOn,
-  setDropDown,
+  setDropDown
 }) {
   const isCurrent = to === currentPath;
   const toggleDropDown = () => {
@@ -152,7 +144,7 @@ function SidebarButton({
   };
 
   return (
-    <li className=" list-none w-full" onClick={onClick}>
+    <li onClick={onClick}>
       <Link
         to={to}
         onClick={() => toggleDropDown()}

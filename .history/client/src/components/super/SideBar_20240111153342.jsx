@@ -40,7 +40,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
       animate={isSidebarOpen ? "open" : "closed"}
       className={`fixed h-screen bg-lightBG text-white p-4 flex flex-col `}
     >
-      
+      <div>
         <div className=" flex  flex-col gap-[1rem] ">
           <h2
             className={` cursor-pointer transform-origin-top-left duration-300 ease place-self-start ${
@@ -60,7 +60,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             } `}
           />
         </div>
-    
+      </div>
       <div className="mt-10">
         <ul className="w-[220px]">
           <SidebarButton
@@ -120,9 +120,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             currentPath={location.pathname}
             onClick={() => toggleSidebar("on")}
           />
-        </ul>
-      </div>
-      <div className="flex h-full  items-end">
+          <div className="flex items-end">
         <SidebarButton
           barState={isSidebarOpen}
           to="/Settings"
@@ -132,6 +130,9 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           onClick={() => toggleSidebar("on")}
         />
       </div>
+        </ul>
+      </div>
+      
     </motion.div>
   );
 };
@@ -152,7 +153,7 @@ function SidebarButton({
   };
 
   return (
-    <li className=" list-none w-full" onClick={onClick}>
+    <li className=" list-none" onClick={onClick}>
       <Link
         to={to}
         onClick={() => toggleDropDown()}
