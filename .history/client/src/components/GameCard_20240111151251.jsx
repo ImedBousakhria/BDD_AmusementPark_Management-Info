@@ -47,7 +47,7 @@ const GameCard = ({ attraction }) => {
 };
 
 export default GameCard;
-/* HERE */
+/* */
 const Details = ({ game, userType }) => {
   const [value, setValue] = useState(game.rating);
   const { title, ageRating, status } = game;
