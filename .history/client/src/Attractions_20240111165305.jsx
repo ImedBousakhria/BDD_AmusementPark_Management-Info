@@ -1,7 +1,6 @@
 import React from "react";
 import { zones } from "./consts";
 import GameCard from "./components/GameCard";
-import ZoneLabel from "./components/super/ZoneLabel";
 
 
 

@@ -62,13 +62,14 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
         </div>
     
       <div className="mt-10">
-        <ul className="">
+        <ul className="w-[220px]">
           <SidebarButton
             barState={isSidebarOpen}
             to="/home"
             icon={dashboard}
             text="Dashboard"
             currentPath={location.pathname}
+            onClick={() => toggleSidebar("on")}
           />
           <SidebarButton
             barState={isSidebarOpen}
@@ -76,6 +77,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             icon={staff}
             text="Staff Management"
             currentPath={location.pathname}
+            onClick={() => toggleSidebar("on")}
           />
           <SidebarButton
             barState={isSidebarOpen}
@@ -83,6 +85,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             icon={game}
             text="Attraction games"
             currentPath={location.pathname}
+            onClick={() => toggleSidebar("on")}
           />
           <SidebarButton
             barState={isSidebarOpen}
@@ -90,7 +93,9 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             icon={stall}
             text="Stall Management"
             currentPath={location.pathname}
-           
+            onClick={() => {
+              toggleSidebar("on");
+            }}
             dropDownOn={dropDownOn}
             setDropDown={setDropDown}
           />
@@ -113,6 +118,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             icon={event}
             text="Event"
             currentPath={location.pathname}
+            onClick={() => toggleSidebar("on")}
           />
         </ul>
       </div>
@@ -123,6 +129,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           icon={settings}
           text="Settings"
           currentPath={location.pathname}
+          onClick={() => toggleSidebar("on")}
         />
       </div>
     </motion.div>
@@ -145,11 +152,11 @@ function SidebarButton({
   };
 
   return (
-    <li className={` ${barState ? " w-full  " : " "} list-none `}  onClick={onClick}>
+    <li className={` ${barState ? "  " : "  "} `} list-none w-full" onClick={onClick}>
       <Link
         to={to}
         onClick={() => toggleDropDown()}
-        className={`flex items-center py-2 px-2 rounded-lg transition-colors  my-4 flex-shrink-0 ${
+        className={`flex items-center p-2 rounded-lg transition-colors  my-4 flex-shrink-0 ${
           isCurrent ? " bg-slate-600" : " hover:bg-slate-800 "
         }
           `}

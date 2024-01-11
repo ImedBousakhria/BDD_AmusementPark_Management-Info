@@ -1,11 +1,16 @@
 import React from "react";
 import { zones } from "./consts";
 import GameCard from "./components/GameCard";
-import ZoneLabel from "./components/super/ZoneLabel";
 
+const ZoneLabel = ({ number }) => {
+  return (
+    <strong className="bg-white p-4 rounded-xl cursor-pointer  ">
+      zone {number}
+    </strong>
+  );
+};
 
-
-const Attractions = () => {
+const  S= () => {
   return (
     <div className="flex min-h-screen w-full">
       <div className=" w-full">
@@ -30,4 +35,4 @@ const Attractions = () => {
   );
 };
 
-export default Attractions;
+export default S;

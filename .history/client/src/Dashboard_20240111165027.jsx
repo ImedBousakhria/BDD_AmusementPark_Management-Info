@@ -20,7 +20,7 @@ const Dashboard = () => {
       <div className="flex flex-col gap-[3rem] items-center basis-[50%]">
         {/* Second column, to the left */}
         <StatBoard />
-        <div className="w-[80%] h-full">
+        <div className="w-[80%] flex flex-col">
           <StaffList />
         </div>
 

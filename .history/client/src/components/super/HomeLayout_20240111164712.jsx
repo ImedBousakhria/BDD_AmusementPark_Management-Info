@@ -8,7 +8,7 @@ const HomeLayout = ({ pageComponent }) => {
     <div className=" flex bg-darkBG min-h-screen">
       <div
         className={` transition-all duration-300 ${
-          isSidebarOpen ? " basis-[18%] " : " basis-[9%]"
+          isSidebarOpen ? " basis-[17%] " : " basis-[9%]"
         } `}
       >
         <SideBar
@@ -18,9 +18,7 @@ const HomeLayout = ({ pageComponent }) => {
       </div>
 
       <div
-        className={` ${
-          isSidebarOpen ? " basis-[80%] " : " basis-[80%]"
-        } h-full w-full my-6 `}
+        className={`  h-full w-full m-6 `}
       >
         {pageComponent}
       </div>

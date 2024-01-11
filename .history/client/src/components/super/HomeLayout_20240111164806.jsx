@@ -20,7 +20,7 @@ const HomeLayout = ({ pageComponent }) => {
       <div
         className={` ${
           isSidebarOpen ? " basis-[80%] " : " basis-[80%]"
-        } h-full w-full my-6 `}
+        } h-full w-full ml-6 my-6 `}
       >
         {pageComponent}
       </div>
