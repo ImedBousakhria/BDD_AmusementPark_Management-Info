@@ -21,71 +21,68 @@ import {
   DragDropProvider,
 } from "@devexpress/dx-react-scheduler-material-ui";
 import Selector from "./components/Selector";
-const appointments = [
-  {
-    id: 1,
-    title: "Test Task",
-    startDate: "2024-01-08T11:00Z",
-    endDate: "2024-01-08T15:30Z",
-    color: "#C3C2FF",
-  },
-  {
-    id: 5,
-    title: "Test Task",
-    startDate: "2024-01-09T09:00Z",
-    endDate: "2024-01-09T10:30Z",
-    color: "#C3C2FF",
-  },
-  {
-    id: 2,
-    title: "Test Task",
-    startDate: "2024-01-10T13:00Z",
-    endDate: "2024-01-10T16:30Z",
-    color: "#66D1F3",
-  },
-  {
-    id: 3,
-    title: "Test Task",
-    startDate: "2024-01-08T11:00Z",
-    endDate: "2024-01-08T16:00Z",
-    color: "#FBCB77",
-  },
-  {
-    id: 10,
-    title: "Test Task",
-    startDate: "2024-01-09T11:00Z",
-    endDate: "2024-01-09T16:00Z",
-    color: "#FBCB77",
-  },
-  {
-    id: 9,
-    title: "Test Task",
-    startDate: "2024-01-12T11:00Z",
-    endDate: "2024-01-12T16:00Z",
-    color: "#FBCB77",
-  },
-  {
-    id: 4,
-    title: "Test Task",
-    startDate: "2024-01-08T09:00Z",
-    endDate: "2024-01-08T12:30Z",
-    color: "#F1B7C1",
-  },
-  {
-    id: 6,
-    title: "Test Task",
-    startDate: "2024-01-13T09:00Z",
-    endDate: "2024-01-13T12:30Z",
-    color: "#66D1F3",
-  },
-];
-
-
-
-
-
+import GameCard from "./components/GameCard";
 
 const Schedule = () => {
+  const appointments = [
+    {
+      id: 1,
+      title: "Test Task",
+      startDate: "2024-01-08T11:00Z",
+      endDate: "2024-01-08T15:30Z",
+      color: "#C3C2FF",
+    },
+    {
+      id: 5,
+      title: "Test Task",
+      startDate: "2024-01-09T09:00Z",
+      endDate: "2024-01-09T10:30Z",
+      color: "#C3C2FF",
+    },
+    {
+      id: 2,
+      title: "Test Task",
+      startDate: "2024-01-10T13:00Z",
+      endDate: "2024-01-10T16:30Z",
+      color: "#66D1F3",
+    },
+    {
+      id: 3,
+      title: "Test Task",
+      startDate: "2024-01-08T11:00Z",
+      endDate: "2024-01-08T16:00Z",
+      color: "#FBCB77",
+    },
+    {
+      id: 10,
+      title: "Test Task",
+      startDate: "2024-01-09T11:00Z",
+      endDate: "2024-01-09T16:00Z",
+      color: "#FBCB77",
+    },
+    {
+      id: 9,
+      title: "Test Task",
+      startDate: "2024-01-12T11:00Z",
+      endDate: "2024-01-12T16:00Z",
+      color: "#FBCB77",
+    },
+    {
+      id: 4,
+      title: "Test Task",
+      startDate: "2024-01-08T09:00Z",
+      endDate: "2024-01-08T12:30Z",
+      color: "#F1B7C1",
+    },
+    {
+      id: 6,
+      title: "Test Task",
+      startDate: "2024-01-13T09:00Z",
+      endDate: "2024-01-13T12:30Z",
+      color: "#66D1F3",
+    },
+  ];
+
   const [state, setState] = useState(appointments);
   const selectedColorRef = useRef("#C3C2FF"); // Initial color
 
@@ -212,20 +209,12 @@ const Schedule = () => {
     );
   };
 
-
-
-  const [selectedZone, setSelectedZone] = React.useState(null); 
-  const [selectedTeam, setSelectedTeam] = React.useState(null); 
-
-
   return (
     <div className="flex flex-col min-h-screen bg-darkBG gap-[2rem]">
       <div className=" w-[50%] flex gap-6 place-self-start ">
-        <Selector selectCategory={"Zone"} icon={zone} selectedOption={selectedZone} setSelectedOption={setSelectedZone} />
-        <Selector selectCategory={"Team"} icon={team} selectedOption={selectedTeam} setSelectedOption={setSelectedTeam} />
-        <button className="bg-creamBlue flex items-center justify-center px-2 rounded-md hover:opacity-70 font-semibold">
-          Select
-        </button>
+        <Selector selectCategory={"Zone"} icon={zone} />
+        <Selector selectCategory={"Team"} icon={team} />
+        <button className="bg-creamBlue flex items-center justify-center px-2 rounded-md">Request</div>
       </div>
       <Paper style={{ width: "100%", height: 650, borderRadius: 10 }}>
         <Scheduler data={state}>

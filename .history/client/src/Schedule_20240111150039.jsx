@@ -214,15 +214,13 @@ const Schedule = () => {
 
 
 
-  const [selectedZone, setSelectedZone] = React.useState(null); 
-  const [selectedTeam, setSelectedTeam] = React.useState(null); 
-
+  const [selectedZone, setSelectedZone] = React.useState(); 
 
   return (
     <div className="flex flex-col min-h-screen bg-darkBG gap-[2rem]">
       <div className=" w-[50%] flex gap-6 place-self-start ">
-        <Selector selectCategory={"Zone"} icon={zone} selectedOption={selectedZone} setSelectedOption={setSelectedZone} />
-        <Selector selectCategory={"Team"} icon={team} selectedOption={selectedTeam} setSelectedOption={setSelectedTeam} />
+        <Selector selectCategory={"Zone"} icon={zone} />
+        <Selector selectCategory={"Team"} icon={team} />
         <button className="bg-creamBlue flex items-center justify-center px-2 rounded-md hover:opacity-70 font-semibold">
           Select
         </button>

@@ -2,6 +2,7 @@ import React from "react";
 import { MenuItem, Select, InputLabel, FormControl } from "@mui/material";
 
 const Selector = ({ selectCategory, icon, selectedOption, setSelectedOption }) => {
+
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
   };
@@ -21,7 +22,6 @@ const Selector = ({ selectCategory, icon, selectedOption, setSelectedOption }) =
         onChange={handleChange}
         label="Select Option"
       >
-        <MenuItem value={null}>None</MenuItem> {/* Option to unselect */}
         <MenuItem value={1}>Option 1</MenuItem>
         <MenuItem value={2}>Option 2</MenuItem>
         <MenuItem value={3}>Option 3</MenuItem>

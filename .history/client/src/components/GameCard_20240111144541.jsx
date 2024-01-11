@@ -49,7 +49,7 @@ const GameCard = ({ attraction }) => {
 export default GameCard;
 
 const Details = ({ game, userType }) => {
-  const [value, setValue] = useState(game.rating);
+  const [value, setValue] = useState(0);
   const { title, ageRating, status } = game;
 
   let statusColorClass = "";

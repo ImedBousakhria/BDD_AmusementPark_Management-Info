@@ -22,7 +22,7 @@ const GameCard = ({ attraction }) => {
   };
 
   return (
-    <div className="relative flex flex-col bg-white h-[220px] min-h-max w-[350px] min-w-max rounded-md p-2">
+    <div className="relative flex flex-col bg-white h-[210px] min-h-max w-[350px] min-w-max rounded-md p-2">
       <img
         onClick={handleMoreDotsClick}
         src={moredots}
@@ -49,7 +49,7 @@ const GameCard = ({ attraction }) => {
 export default GameCard;
 
 const Details = ({ game, userType }) => {
-  const [value, setValue] = useState(game.rating);
+  const [value, setValue] = useState(0);
   const { title, ageRating, status } = game;
 
   let statusColorClass = "";

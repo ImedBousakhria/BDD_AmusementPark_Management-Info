@@ -41,9 +41,9 @@ const StaffList = () => {
       <div className="flex justify-between items-center">
         {" "}
         <h3 className=" text-xl font-semibold tracking-wider">Staff Members</h3>
-        <Link to={"/Staff"} href="" className="flex items-center">
+        <Link href="" className="flex items-center">
           see more {">"}
-        </Link>
+        </a>
       </div>
       {data.map((el, i) => (
         <StaffMember element={el} />

@@ -41,7 +41,7 @@ const StaffList = () => {
       <div className="flex justify-between items-center">
         {" "}
         <h3 className=" text-xl font-semibold tracking-wider">Staff Members</h3>
-        <Link to={"/Staff"} href="" className="flex items-center">
+        <Link to={"/staff"} href="" className="flex items-center">
           see more {">"}
         </Link>
       </div>

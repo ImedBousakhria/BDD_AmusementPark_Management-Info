@@ -214,8 +214,8 @@ const Schedule = () => {
 
 
 
-  const [selectedZone, setSelectedZone] = React.useState(null); 
-  const [selectedTeam, setSelectedTeam] = React.useState(null); 
+  const [selectedZone, setSelectedZone] = React.useState(0); 
+  const [selectedTeam, setSelectedTeam] = React.useState(); 
 
 
   return (
