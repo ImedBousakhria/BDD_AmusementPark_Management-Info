@@ -1,16 +1,17 @@
 import React from "react";
+import profile from "../assets/icons/bnadem.svg";
+import pfp from "../assets/icons/pfp.svg";
 
 const StaffMember = ({ element }) => {
   return (
-    <div className="flex justify-between py-2 my-1 bg-gray-100">
-      <div className="flex gap-3">
-        <div>img</div>
-        <div>
+    <div className="flex items-center justify-between p-2 my-1">
+      <div className="flex gap-3 items-center">
+        <img src={pfp} alt="" />{" "}
+        <div className=" cursor-pointer font-semibold">
           {element.firstName} {element.lastName}
         </div>
       </div>
-
-      <div>profile</div>
+      <img src={profile} className="cursor-pointer" alt="" />
     </div>
   );
 };

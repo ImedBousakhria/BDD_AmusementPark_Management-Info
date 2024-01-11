@@ -37,7 +37,7 @@ const data = [
 
 const StaffList = () => {
   return (
-    <div className="bg-white p-4 flex flex-col h-full w-[80%] rounded-lg ">
+    <div className="bg-white p-4 flex flex-col h-full w-full rounded-lg ">
       <div className="flex justify-between items-center">
         {" "}
         <h3 className=" text-xl font-semibold tracking-wider">Staff Members</h3>
