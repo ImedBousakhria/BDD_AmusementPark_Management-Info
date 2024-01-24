@@ -17,7 +17,7 @@ const Attractions = () => {
 
   const openModal = (game) => {
     setModalIsOpen(true);
-    setCurrentComments(comments[game.title]);
+    setCurrentComments(comments[game?.title]);
     setCurrentGame(game);
   };
 
@@ -40,7 +40,10 @@ const Attractions = () => {
                 return (
                   <>
                     <div
-                      onClick={() => openModal(game)}
+                      onClick={() => {
+                        setModalIsOpen(true);
+                        setCurrentGame(game);
+                      }}
                       className=" cursor-pointer"
                     >
                       <GameCard attraction={game} />

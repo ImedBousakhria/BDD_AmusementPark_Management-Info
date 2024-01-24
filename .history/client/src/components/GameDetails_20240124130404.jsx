@@ -26,7 +26,7 @@ const GameDetails = ({ game, userType }) => {
     <div className="flex flex-col p-3">
       <h3 className="overflow-hidden font-semibold">{title}</h3>
       <Rating
-        className=" flex w-max "
+        className=" flex "
         name="simple-controlled"
         value={value}
         readOnly={userType}

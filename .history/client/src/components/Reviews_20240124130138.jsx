@@ -3,7 +3,7 @@ import React from "react";
 
 const Reviews = ({ game, comments }) => {
   return (
-    <div className="p-4 flex flex-col gap-3 ">
+    <div className="p-4 flex flex-col ">
       <div className=" flex justify-between">
         Reviews
         <GiveFeedBack />
@@ -21,9 +21,9 @@ const Reviews = ({ game, comments }) => {
 
       {/*  comments : create a component later */}
 
-      <ul className="flex flex-col gap-3">
+      <ul>
         {comments.map((comment, index) => (
-          <Comment comment={comment}  index={index}/>
+          <Comment comment={comment} />
         ))}
       </ul>
     </div>
@@ -37,11 +37,11 @@ function GiveFeedBack() {
 }
 
 
-function Comment({comment, index}) {
+function Comment() {
 
   return (
     <div>
-      <li key={index} className=" bg-gray-100 p-3 rounded-md">
+      <li key={index}>
             <strong>{comment.user}:</strong> {comment.text}
           </li>
     </div>

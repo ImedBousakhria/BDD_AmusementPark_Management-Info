@@ -41,7 +41,7 @@ function Comment({comment, index}) {
 
   return (
     <div>
-      <li key={index} className=" bg-gray-100 p-3 rounded-md">
+      <li key={index} className=" bg-gray-200 p-3 rounded-md">
             <strong>{comment.user}:</strong> {comment.text}
           </li>
     </div>

@@ -3,7 +3,7 @@ import React from "react";
 
 const Reviews = ({ game, comments }) => {
   return (
-    <div className="p-4 flex flex-col gap-3 ">
+    <div className="p-4 flex flex-col ">
       <div className=" flex justify-between">
         Reviews
         <GiveFeedBack />
@@ -41,7 +41,7 @@ function Comment({comment, index}) {
 
   return (
     <div>
-      <li key={index} className=" bg-gray-100 p-3 rounded-md">
+      <li key={index} className=" bg-gray-300 p-3 rounded-md">
             <strong>{comment.user}:</strong> {comment.text}
           </li>
     </div>

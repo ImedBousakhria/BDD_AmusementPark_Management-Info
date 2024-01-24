@@ -40,7 +40,10 @@ const Attractions = () => {
                 return (
                   <>
                     <div
-                      onClick={() => openModal(game)}
+                      onClick={() => {
+                        setModalIsOpen(true);
+                        setCurrentGame(game);
+                      }}
                       className=" cursor-pointer"
                     >
                       <GameCard attraction={game} />
