@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import logo from "../../assets/icons/logo.svg";
+import lpfp from "../../assets/icons/lpfp.svg";
+import logout from "../../assets/icons/logout.svg";
+
 import game from "../../assets/nav icons/attractions.svg";
 import dashboard from "../../assets/nav icons/dashboard.svg";
 import event from "../../assets/nav icons/event.svg";
@@ -7,6 +10,7 @@ import schedule from "../../assets/nav icons/schedule.svg";
 import staff from "../../assets/nav icons/staff.svg";
 import stall from "../../assets/nav icons/stall.svg";
 import settings from "../../assets/nav icons/settings.svg";
+import map from "../../assets/nav icons/map.svg";
 
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -19,7 +23,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const [dropDownOn, setDropDown] = useState(false);
 
   const sidebarVariants = {
-    open: { width: "260px" }, // Width while SideBar's open
+    open: { width: "300px" }, // Width while SideBar's open
     closed: { width: "70px" }, // Closed
   };
 
@@ -40,28 +44,27 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
       animate={isSidebarOpen ? "open" : "closed"}
       className={`fixed h-screen bg-lightBG text-white p-4 flex flex-col `}
     >
-      
-        <div className=" flex  flex-col gap-[1rem] ">
-          <h2
-            className={` cursor-pointer transform-origin-top-left duration-300 ease place-self-start ${
-              isSidebarOpen ? " rotate-180 " : ""
-            }`}
-            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          >
-            {">"}
-          </h2>
-          <img
-            src={logo}
-            alt="Your Logo"
-            className={`transition-transform origin-left duration-300      ${
-              isSidebarOpen ? " scale-90" : ""
-            }
+      <div className=" flex  flex-col gap-[1rem] ">
+        <h2
+          className={` cursor-pointer transform-origin-top-left duration-300 ease place-self-start ${
+            isSidebarOpen ? " rotate-180 " : ""
+          }`}
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+        >
+          {">"}
+        </h2>
+        <img
+          src={logo}
+          alt="Your Logo"
+          className={`transition-transform origin-left duration-300      ${
+            isSidebarOpen ? " scale-90" : ""
+          }
                 
             } `}
-          />
-        </div>
-    
-      <div className="mt-10">
+        />
+      </div>
+
+      <div className="mt-10 flex flex-col">
         <ul className="">
           <SidebarButton
             barState={isSidebarOpen}
@@ -90,7 +93,6 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             icon={stall}
             text="Stall Management"
             currentPath={location.pathname}
-           
             dropDownOn={dropDownOn}
             setDropDown={setDropDown}
           />
@@ -114,9 +116,17 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             text="Event"
             currentPath={location.pathname}
           />
+          <SidebarButton
+            barState={isSidebarOpen}
+            to="/Map"
+            icon={map}
+            text="Map"
+            currentPath={location.pathname}
+          />
         </ul>
       </div>
-      <div className="flex h-full  items-end">
+
+      <div className="flex h-full items-end border-b border-b-gray-500 mb-2">
         <SidebarButton
           barState={isSidebarOpen}
           to="/Settings"
@@ -124,6 +134,28 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           text="Settings"
           currentPath={location.pathname}
         />
+      </div>
+      <div className="flex px-2">
+        <div className="flex items-center gap-3">
+          <img src={lpfp} className=" w-8" alt="" />{" "}
+          <div
+            className={`    transition-transform origin-left duration-300      ${
+              isSidebarOpen ? "scale-100" : "scale-0"
+            }
+             flex flex-col `}
+          >
+            <h4 className=" font-medium">Imed Bousakhria</h4>{" "}
+            <small className=" text-gray-300"> ImedBousakhria@gmail.com</small>
+          </div>
+          <img
+            src={logout}
+            className={`    transition-transform origin-left duration-300      ${
+              isSidebarOpen ? "scale-100" : "scale-0"
+            }
+            w-8 cursor-pointer`}
+            alt=""
+          />
+        </div>
       </div>
     </motion.div>
   );
@@ -145,7 +177,10 @@ function SidebarButton({
   };
 
   return (
-    <li className={` ${barState ? " w-full  " : " "} list-none `}  onClick={onClick}>
+    <li
+      className={` ${barState ? " w-full  " : " "} list-none `}
+      onClick={onClick}
+    >
       <Link
         to={to}
         onClick={() => toggleDropDown()}
@@ -162,10 +197,10 @@ function SidebarButton({
         />
 
         <span
-          className={`    transition-transform origin-left duration-300      ${
+          className={`    transition-transform origin-left duration-300   ${
             barState ? "scale-100" : "scale-0"
           }
-          min-w-max font-semibold monstserrat text-white `}
+          min-w-max font-semibold text-white `}
         >
           {text}
         </span>
