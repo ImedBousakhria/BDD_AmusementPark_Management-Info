@@ -93,7 +93,7 @@ function CustomModal({ displayedEntity, modalIsOpen, setModalIsOpen }) {
         </div>
 
         <div className="flex gap-[2rem]">
-          <img src={game} className="w-[50%]" alt="" />
+          <img src={game} className="-[40%]" alt="" />
           <div className=" flex flex-col">
             <GameDetails game={displayedEntity} />
             <p onClick={() => console.log(displayedEntity)}>

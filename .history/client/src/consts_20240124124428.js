@@ -23,16 +23,14 @@ export const zones = [
         ageRating: "E for Everyone",
         status: "Open",
         rating: 4, // Rating out of 5
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac elit eu augue suscipit convallis.",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac elit eu augue suscipit convallis."
       },
       {
         title: "Thrill Tower",
         ageRating: "T for Teen",
         status: "Closed",
         rating: 3.5, // Rating out of 5
-        description:
-          "Nulla facilisi. Sed at quam non elit interdum efficitur eu ut ligula.",
+        description: "Nulla facilisi. Sed at quam non elit interdum efficitur eu ut ligula."
       },
     ],
     stalls: [
@@ -70,16 +68,14 @@ export const zones = [
         ageRating: "Mature",
         status: "Under Maintenance",
         rating: 2.5, // Rating out of 5
-        description:
-          "Vestibulum tincidunt justo ut dui rhoncus, in luctus felis interdum.",
+        description: "Vestibulum tincidunt justo ut dui rhoncus, in luctus felis interdum."
       },
       {
         title: "Enchanted Carousel",
         ageRating: "E10+",
         status: "Open",
         rating: 4.5, // Rating out of 5
-        description:
-          "Cras auctor, felis nec volutpat pellentesque, dui nisl gravida urna, a varius lacus lacus vel dolor.",
+        description: "Cras auctor, felis nec volutpat pellentesque, dui nisl gravida urna, a varius lacus lacus vel dolor."
       },
     ],
     stalls: [
@@ -117,16 +113,14 @@ export const zones = [
         ageRating: "E10+",
         status: "Open",
         rating: 4.8, // Rating out of 5
-        description:
-          "Donec vel neque eget tortor dapibus suscipit. Sed ac libero in ante sodales posuere vel eu libero.",
+        description: "Donec vel neque eget tortor dapibus suscipit. Sed ac libero in ante sodales posuere vel eu libero."
       },
       {
         title: "Haunted Mansion",
         ageRating: "Mature",
         status: "Closed",
         rating: 3, // Rating out of 5
-        description:
-          "Maecenas vel neque non elit malesuada congue. Curabitur hendrerit purus vel massa accumsan fringilla.",
+        description: "Maecenas vel neque non elit malesuada congue. Curabitur hendrerit purus vel massa accumsan fringilla."
       },
     ],
     stalls: [
@@ -142,8 +136,10 @@ export const zones = [
   },
 ];
 
-// Stall categories list
+// Stall categories list 
 export const stall_cat = ["Food stalls", "Gift Stalls"];
+
+
 
 export const comments = {
   "Wonder Wheel": [
@@ -158,10 +154,7 @@ export const comments = {
   ],
   "Dragon Coaster": [
     { user: "User5", text: "Exciting twists and turns!" },
-    {
-      user: "User6",
-      text: "Under Maintenance? Looking forward to it reopening.",
-    },
+    { user: "User6", text: "Under Maintenance? Looking forward to it reopening." },
     // Add more comments for Dragon Coaster if needed
   ],
   "Enchanted Carousel": [
