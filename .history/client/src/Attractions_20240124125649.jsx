@@ -15,11 +15,7 @@ const Attractions = () => {
   const [currentGame, setCurrentGame] = useState(null);
   const [currentComments, setCurrentComments] = useState([]);
 
-  const openModal = (game) => {
-    setModalIsOpen(true);
-    setCurrentGame(game);
-    setCurrentComments(comments[game?.title]);
-  };
+  const openModal
 
   return (
     <div className="flex min-h-screen w-[90%]">
@@ -49,7 +45,7 @@ const Attractions = () => {
                       <GameCard attraction={game} />
                     </div>
                     <div
-                      onClick={() => openModal(game)}
+                      onClick={() => openModal()}
                       className=" cursor-pointer"
                     >
                       <GameCard attraction={game} />
@@ -71,12 +67,7 @@ const Attractions = () => {
 
 export default Attractions;
 
-function CustomModal({
-  displayedEntity,
-  modalIsOpen,
-  setModalIsOpen,
-  currentComments,
-}) {
+function CustomModal({ displayedEntity, modalIsOpen, setModalIsOpen, currentComments }) {
   return (
     <Modal
       style={{
@@ -114,8 +105,18 @@ function CustomModal({
             </p>
           </div>
         </div>
-        <Reviews game={displayedEntity} comments={currentComments} />
-       
+        <Reviews  game={displayedEntity}/>
+        <h3>Comments:</h3>
+        <ul>
+          {currentComments.map((comment, index) => (
+            <li key={index}>
+              <strong>{comment.user}:</strong> {comment.text}
+            </li>
+          ))}
+        </ul>
+
+
+
       </div>
     </Modal>
   );

@@ -1,7 +1,7 @@
 import { Rating } from "@mui/material";
 import React from "react";
 
-const Reviews = ({ game, comments }) => {
+const Reviews = ({ game }) => {
   return (
     <div className="p-4 flex flex-col ">
       <div className=" flex justify-between">
@@ -18,16 +18,6 @@ const Reviews = ({ game, comments }) => {
           readOnly
         />{" "}
       </span>
-
-      {/*  comments : create a component later */}
-
-      <ul>
-        {comments.map((comment, index) => (
-          <li key={index}>
-            <strong>{comment.user}:</strong> {comment.text}
-          </li>
-        ))}
-      </ul>
     </div>
   );
 };

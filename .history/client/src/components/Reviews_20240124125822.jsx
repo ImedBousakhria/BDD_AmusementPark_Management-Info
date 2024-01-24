@@ -19,8 +19,7 @@ const Reviews = ({ game, comments }) => {
         />{" "}
       </span>
 
-      {/*  comments : create a component later */}
-
+      {/*  comments */}
       <ul>
         {comments.map((comment, index) => (
           <li key={index}>

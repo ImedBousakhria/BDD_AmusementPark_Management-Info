@@ -19,10 +19,9 @@ const Reviews = ({ game, comments }) => {
         />{" "}
       </span>
 
-      {/*  comments : create a component later */}
-
+      {/*  comments */}
       <ul>
-        {comments.map((comment, index) => (
+        {currentComments.map((comment, index) => (
           <li key={index}>
             <strong>{comment.user}:</strong> {comment.text}
           </li>

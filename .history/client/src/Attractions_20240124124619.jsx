@@ -7,19 +7,10 @@ import Modal from "react-modal";
 import game from "./assets/icons/game.svg";
 import close from "./assets/icons/Close.svg";
 import GameDetails from "./components/GameDetails";
-import Reviews from "./components/Reviews";
-import { comments } from "./consts";
 
 const Attractions = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentGame, setCurrentGame] = useState(null);
-  const [currentComments, setCurrentComments] = useState([]);
-
-  const openModal = (game) => {
-    setModalIsOpen(true);
-    setCurrentGame(game);
-    setCurrentComments(comments[game?.title]);
-  };
 
   return (
     <div className="flex min-h-screen w-[90%]">
@@ -29,7 +20,6 @@ const Attractions = () => {
           displayedEntity={currentGame}
           modalIsOpen={modalIsOpen}
           setModalIsOpen={setModalIsOpen}
-          currentComments={currentComments}
         />
 
         {zones.map((zone, zoneIndex) => (
@@ -49,7 +39,10 @@ const Attractions = () => {
                       <GameCard attraction={game} />
                     </div>
                     <div
-                      onClick={() => openModal(game)}
+                      onClick={() => {
+                        setModalIsOpen(true);
+                        setCurrentGame(game);
+                      }}
                       className=" cursor-pointer"
                     >
                       <GameCard attraction={game} />
@@ -71,12 +64,7 @@ const Attractions = () => {
 
 export default Attractions;
 
-function CustomModal({
-  displayedEntity,
-  modalIsOpen,
-  setModalIsOpen,
-  currentComments,
-}) {
+function CustomModal({ displayedEntity, modalIsOpen, setModalIsOpen }) {
   return (
     <Modal
       style={{
@@ -114,8 +102,11 @@ function CustomModal({
             </p>
           </div>
         </div>
-        <Reviews game={displayedEntity} comments={currentComments} />
-       
+        <Rev
+
+
+
+
       </div>
     </Modal>
   );

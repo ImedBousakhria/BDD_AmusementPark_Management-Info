@@ -114,8 +114,14 @@ function CustomModal({
             </p>
           </div>
         </div>
-        <Reviews game={displayedEntity} comments={currentComments} />
-       
+        <Reviews game={displayedEntity} comments= />
+        <ul>
+          {currentComments.map((comment, index) => (
+            <li key={index}>
+              <strong>{comment.user}:</strong> {comment.text}
+            </li>
+          ))}
+        </ul>
       </div>
     </Modal>
   );
