@@ -48,8 +48,8 @@ const StaffList = () => {
         </Link>
       </div>
       {users.map((el, i) => (
-        <StaffMember element={el} />
-      ))}
+/*         <StaffMember element={el} />
+ */      ))}
     </div>
   );
 };

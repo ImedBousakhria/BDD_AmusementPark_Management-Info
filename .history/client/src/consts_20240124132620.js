@@ -182,15 +182,18 @@ export const comments = {
   // Add more attractions and comments as needed
 };
 
+
+
+
 // profiles
 // db.js
-export const users = [
-  { id: "userId2", name: "Meriem Lina Hadi", email: "meriem@example.com" },
-  { id: "userId1", name: "Imed Bousakhria", email: "imed@example.com" },
-  { id: "userId3", name: "Belaid Sara", email: "belaid@example.com" },
-  { id: "userId4", name: "John Doe", email: "john@example.com" },
-  { id: "userId5", name: "Jane Doe", email: "jane@example.com" },
-  { id: "userId6", name: "Alice Smith", email: "alice@example.com" },
-  { id: "userId7", name: "Bob Johnson", email: "bob@example.com" },
+export const users = {
+  { id: 'userId1', name: 'Imed Bousakhria', email: 'imed@example.com' },
+  userId2: { id: 'userId2', name: 'Meriem Lina Hadi', email: 'meriem@example.com' },
+  userId3: { id: 'userId3', name: 'Belaid Sara', email: 'belaid@example.com' },
+  userId4: { id: 'userId4', name: 'John Doe', email: 'john@example.com' },
+  userId5: { id: 'userId5', name: 'Jane Doe', email: 'jane@example.com' },
+  userId6: { id: 'userId6', name: 'Alice Smith', email: 'alice@example.com' },
+  userId7: { id: 'userId7', name: 'Bob Johnson', email: 'bob@example.com' },
   // Add more users as needed
-];
+};

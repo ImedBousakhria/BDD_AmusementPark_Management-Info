@@ -16,7 +16,6 @@ import Event from "./Event.jsx";
 import Stall from "./Stall.jsx";
 import Staff from "./Staff.jsx";
 import Map from "./Map.jsx";
-import Profile from "./components/super/Profile.jsx";
 
 const App = () => {
   return (
@@ -59,8 +58,8 @@ const App = () => {
           element={<HomeLayout pageComponent={<Map />} />}
         />
         <Route
-          path={"/profile/:id"}
-          element={<HomeLayout pageComponent={<Profile />} />}
+          path="/profile/:id"
+          element={<HomeLayout pageComponent={<Map />} />}
         />
       </Routes>
     </BrowserRouter>

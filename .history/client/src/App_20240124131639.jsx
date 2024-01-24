@@ -16,7 +16,6 @@ import Event from "./Event.jsx";
 import Stall from "./Stall.jsx";
 import Staff from "./Staff.jsx";
 import Map from "./Map.jsx";
-import Profile from "./components/super/Profile.jsx";
 
 const App = () => {
   return (

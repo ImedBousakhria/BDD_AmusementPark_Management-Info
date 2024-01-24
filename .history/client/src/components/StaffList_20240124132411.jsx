@@ -1,7 +1,6 @@
 import React from "react";
 import StaffMember from "./StaffMember";
 import { Link } from "react-router-dom";
-import { users } from "../consts";
 
 const data = [
   {
@@ -47,7 +46,7 @@ const StaffList = () => {
           see more {">"}
         </Link>
       </div>
-      {users.map((el, i) => (
+      {data.map((el, i) => (
         <StaffMember element={el} />
       ))}
     </div>

@@ -48,8 +48,9 @@ const StaffList = () => {
         </Link>
       </div>
       {users.map((el, i) => (
-        <StaffMember element={el} />
-      ))}
+        <p onClick={() => console.log(el)}>hhhh  </p>
+/*         <StaffMember element={el} />
+ */      ))}
     </div>
   );
 };

@@ -47,7 +47,7 @@ const StaffList = () => {
           see more {">"}
         </Link>
       </div>
-      {users.map((el, i) => (
+      {data.map((el, i) => (
         <StaffMember element={el} />
       ))}
     </div>
