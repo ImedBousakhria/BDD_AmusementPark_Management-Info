@@ -5,15 +5,47 @@ export const zones = [
       {
         name: "Team 1",
         staff: [
-          { name: "Alice Johnson", email: "alice@example.com" },
-          { name: "Bob Smith", email: "bob@example.com" },
+          { id: 1, name: "Alice Johnson", email: "alice@example.com" },
+          { id: 2, name: "Bob Smith", email: "bob@example.com" },
+        ],
+        appointments: [
+          {
+            id: 1,
+            title: "Team 1 Task 1",
+            startDate: "2024-01-22T09:00Z",
+            endDate: "2024-01-22T10:30Z",
+            color: "#C3C2FF",
+          },
+          {
+            id: 2,
+            title: "Team 1 Task 2",
+            startDate: "2024-01-24T11:00Z",
+            endDate: "2024-01-24T12:30Z",
+            color: "#C3C2FF",
+          },
         ],
       },
       {
         name: "Team 2",
         staff: [
-          { name: "Charlie Brown", email: "charlie@example.com" },
-          { name: "Diana Miller", email: "diana@example.com" },
+          { id: 3, name: "Charlie Brown", email: "charlie@example.com" },
+          { id: 4, name: "Diana Miller", email: "diana@example.com" },
+        ],
+        appointments: [
+          {
+            id: 3,
+            title: "Team 2 Task 1",
+            startDate: "2024-01-23T13:00Z",
+            endDate: "2024-01-23T14:30Z",
+            color: "#C3C2FF",
+          },
+          {
+            id: 4,
+            title: "Team 2 Task 2",
+            startDate: "2024-01-25T15:00Z",
+            endDate: "2024-01-25T16:30Z",
+            color: "#C3C2FF",
+          },
         ],
       },
     ],
@@ -22,7 +54,7 @@ export const zones = [
         title: "Wonder Wheel",
         ageRating: "E for Everyone",
         status: "Open",
-        rating: 4, // Rating out of 5
+        rating: 4,
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac elit eu augue suscipit convallis.",
       },
@@ -30,7 +62,7 @@ export const zones = [
         title: "Thrill Tower",
         ageRating: "T for Teen",
         status: "Closed",
-        rating: 3.5, // Rating out of 5
+        rating: 3.5,
         description:
           "Nulla facilisi. Sed at quam non elit interdum efficitur eu ut ligula.",
       },
@@ -52,15 +84,47 @@ export const zones = [
       {
         name: "Team 3",
         staff: [
-          { name: "Eva Davis", email: "eva@example.com" },
-          { name: "Frank Thomas", email: "frank@example.com" },
+          { id: 5, name: "Eva Davis", email: "eva@example.com" },
+          { id: 6, name: "Frank Thomas", email: "frank@example.com" },
+        ],
+        appointments: [
+          {
+            id: 5,
+            title: "Team 3 Task 1",
+            startDate: "2024-01-22T09:00Z",
+            endDate: "2024-01-22T10:30Z",
+            color: "#66D1F3",
+          },
+          {
+            id: 6,
+            title: "Team 3 Task 2",
+            startDate: "2024-01-24T11:00Z",
+            endDate: "2024-01-24T12:30Z",
+            color: "#66D1F3",
+          },
         ],
       },
       {
         name: "Team 4",
         staff: [
-          { name: "Grace Wilson", email: "grace@example.com" },
-          { name: "Henry Clark", email: "henry@example.com" },
+          { id: 7, name: "Grace Wilson", email: "grace@example.com" },
+          { id: 8, name: "Henry Clark", email: "henry@example.com" },
+        ],
+        appointments: [
+          {
+            id: 7,
+            title: "Team 4 Task 1",
+            startDate: "2024-01-23T13:00Z",
+            endDate: "2024-01-23T14:30Z",
+            color: "#66D1F3",
+          },
+          {
+            id: 8,
+            title: "Team 4 Task 2",
+            startDate: "2024-01-25T15:00Z",
+            endDate: "2024-01-25T16:30Z",
+            color: "#66D1F3",
+          },
         ],
       },
     ],
@@ -69,7 +133,7 @@ export const zones = [
         title: "Dragon Coaster",
         ageRating: "Mature",
         status: "Under Maintenance",
-        rating: 2.5, // Rating out of 5
+        rating: 2.5,
         description:
           "Vestibulum tincidunt justo ut dui rhoncus, in luctus felis interdum.",
       },
@@ -77,7 +141,7 @@ export const zones = [
         title: "Enchanted Carousel",
         ageRating: "E10+",
         status: "Open",
-        rating: 4.5, // Rating out of 5
+        rating: 4.5,
         description:
           "Cras auctor, felis nec volutpat pellentesque, dui nisl gravida urna, a varius lacus lacus vel dolor.",
       },
@@ -99,15 +163,47 @@ export const zones = [
       {
         name: "Team 5",
         staff: [
-          { name: "Isaac White", email: "isaac@example.com" },
-          { name: "Jessica Turner", email: "jessica@example.com" },
+          { id: 9, name: "Isaac White", email: "isaac@example.com" },
+          { id: 10, name: "Jessica Turner", email: "jessica@example.com" },
+        ],
+        appointments: [
+          {
+            id: 9,
+            title: "Team 5 Task 1",
+            startDate: "2024-01-22T09:00Z",
+            endDate: "2024-01-22T10:30Z",
+            color: "#F1B7C1",
+          },
+          {
+            id: 10,
+            title: "Team 5 Task 2",
+            startDate: "2024-01-24T11:00Z",
+            endDate: "2024-01-24T12:30Z",
+            color: "#F1B7C1",
+          },
         ],
       },
       {
         name: "Team 6",
         staff: [
-          { name: "Kevin Harris", email: "kevin@example.com" },
-          { name: "Laura Evans", email: "laura@example.com" },
+          { id: 11, name: "Kevin Harris", email: "kevin@example.com" },
+          { id: 12, name: "Laura Evans", email: "laura@example.com" },
+        ],
+        appointments: [
+          {
+            id: 11,
+            title: "Team 6 Task 1",
+            startDate: "2024-01-23T13:00Z",
+            endDate: "2024-01-23T14:30Z",
+            color: "#F1B7C1",
+          },
+          {
+            id: 12,
+            title: "Team 6 Task 2",
+            startDate: "2024-01-25T15:00Z",
+            endDate: "2024-01-25T16:30Z",
+            color: "#F1B7C1",
+          },
         ],
       },
     ],
@@ -116,7 +212,7 @@ export const zones = [
         title: "Galactic Adventure",
         ageRating: "E10+",
         status: "Open",
-        rating: 4.8, // Rating out of 5
+        rating: 4.8,
         description:
           "Donec vel neque eget tortor dapibus suscipit. Sed ac libero in ante sodales posuere vel eu libero.",
       },
@@ -124,7 +220,7 @@ export const zones = [
         title: "Haunted Mansion",
         ageRating: "Mature",
         status: "Closed",
-        rating: 3, // Rating out of 5
+        rating: 3,
         description:
           "Maecenas vel neque non elit malesuada congue. Curabitur hendrerit purus vel massa accumsan fringilla.",
       },
@@ -141,6 +237,8 @@ export const zones = [
     ],
   },
 ];
+
+
 
 // Stall categories list
 export const stall_cat = ["Food stalls", "Gift Stalls"];
