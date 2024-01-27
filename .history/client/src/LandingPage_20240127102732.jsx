@@ -213,12 +213,11 @@ const LandingPage = () => {
             Ornare viverra pretium eros vitae.
           </p>
           <Link
-          to={'/home'}
             href=""
             className=" py-2 px-5 shadow-md shadow-customBlue rounded-full bg-customBlue text-black"
           >
             See more
-          </Link>
+          </a>
         </div>
       </section>
 

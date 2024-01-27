@@ -29,35 +29,6 @@ import { motion } from "framer-motion";
 AOS.init();
 
 const LandingPage = () => {
-  const endDate = new Date("2024-01-29T00:00:00"); // Define the end date
-
-  // State variables to hold countdown values
-  const [days, setDays] = useState(0);
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
-
-  // Function to calculate countdown values
-  const calculateTimeLeft = () => {
-    const now = new Date();
-    const difference = endDate - now;
-
-    if (difference > 0) {
-      setDays(Math.floor(difference / (1000 * 60 * 60 * 24)));
-      setHours(Math.floor((difference / (1000 * 60 * 60)) % 24));
-      setMinutes(Math.floor((difference / 1000 / 60) % 60));
-      setSeconds(Math.floor((difference / 1000) % 60));
-    }
-  };
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      calculateTimeLeft();
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
   useEffect(() => {
     AOS.refresh();
   }, []);
@@ -149,6 +120,8 @@ const LandingPage = () => {
 
       <section
         id="events"
+        data-aos="fade-up"
+        data-aos-duration="1000"
         className="bg-primaryBG h-[90vh] mb-20 flex flex-col items-center justify-center w-screen z-20"
       >
         {/* third section */}
@@ -156,41 +129,65 @@ const LandingPage = () => {
         <img src={placeholder} className=" w-[70%]" alt="" />
       </section>
 
-      <section
-        id="upcoming"
-        className="bg-primaryBG h-screen flex flex-col items-center w-screen px-40 mx-auto"
-      >
-        {/* fourth section */}
-        <div className="flex flex-col gap-[4rem]">
-          <h2 className="tracking-wider">Upcoming Event</h2>
-          <div className="flex justify-center gap-[3rem]">
-            <div className="text-center relative">
-              <img src={ticketYellow} alt="" className="" />
-              <div className="text-5xl text-white absolute top-[35%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                {days}
-              </div>
-            </div>
-            <div className="text-center relative">
-              <img src={ticketBlue} alt="" className="" />
-              <div className="text-5xl text-white absolute top-[35%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                {hours}
-              </div>
-            </div>
-            <div className="text-center relative">
-              <img src={ticketPink} alt="" className="" />
-              <div className="text-5xl text-white absolute top-[35%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                {minutes}
-              </div>
-            </div>
-            <div className="text-center relative">
-              <img src={ticketPurple} alt="" className="" />
-              <div className="text-5xl text-white absolute top-[35%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                {seconds}
-              </div>
-            </div>
-          </div>
+      const endDate = new Date("2024-01-29T00:00:00"); // Define the end date
+
+// State variables to hold countdown values
+const [days, setDays] = useState(0);
+const [hours, setHours] = useState(0);
+const [minutes, setMinutes] = useState(0);
+const [seconds, setSeconds] = useState(0);
+
+// Function to calculate countdown values
+const calculateTimeLeft = () => {
+  const now = new Date();
+  const difference = endDate - now;
+
+  if (difference > 0) {
+    setDays(Math.floor(difference / (1000 * 60 * 60 * 24)));
+    setHours(Math.floor((difference / (1000 * 60 * 60)) % 24));
+    setMinutes(Math.floor((difference / 1000 / 60) % 60));
+    setSeconds(Math.floor((difference / 1000) % 60));
+  }
+};
+
+useEffect(() => {
+  const timer = setInterval(() => {
+    calculateTimeLeft();
+  }, 1000);
+
+  return () => clearInterval(timer);
+}, []);
+
+return (
+  <section
+    id="upcoming"
+    className="bg-primaryBG h-screen flex flex-col items-center w-screen px-40 mx-auto"
+  >
+    {/* fourth section */}
+    <div className="flex flex-col gap-[4rem]">
+      <h2 className="tracking-wider">Upcoming Event</h2>
+      <div className="flex">
+        <div>
+          <img src={ticketYellow} alt="" className="" />
+          <div>{`${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`}</div>
         </div>
-      </section>
+        <div>
+          <img src={ticketBlue} alt="" className="" />
+          <div>{`${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`}</div>
+        </div>
+        <div>
+          <img src={ticketPink} alt="" className="" />
+          <div>{`${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`}</div>
+        </div>
+        <div>
+          <img src={ticketPurple} alt="" className="" />
+          <div>{`${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+};
 
       <section
         id="about"
@@ -212,13 +209,12 @@ const LandingPage = () => {
             amet, consecetur adipiscing elit. Morbi eget duis pretium mauris.
             Ornare viverra pretium eros vitae.
           </p>
-          <Link
-          to={'/home'}
+          <a
             href=""
             className=" py-2 px-5 shadow-md shadow-customBlue rounded-full bg-customBlue text-black"
           >
             See more
-          </Link>
+          </a>
         </div>
       </section>
 
@@ -374,7 +370,7 @@ function NavBar() {
           to={"/SignUp"}
           href=""
           className=" sign-btn flex items-center font-semibold border-4 py-1.5 px-3.5 rounded-3xl hover:bg-white hover:bg-opacity-60 hover:text-primaryBG"
-        >
+        > 
           Sign Up
         </Link>
       </div>

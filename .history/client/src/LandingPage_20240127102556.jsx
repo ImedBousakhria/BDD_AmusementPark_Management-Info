@@ -149,6 +149,8 @@ const LandingPage = () => {
 
       <section
         id="events"
+        data-aos="fade-up"
+        data-aos-duration="1000"
         className="bg-primaryBG h-[90vh] mb-20 flex flex-col items-center justify-center w-screen z-20"
       >
         {/* third section */}
@@ -163,28 +165,28 @@ const LandingPage = () => {
         {/* fourth section */}
         <div className="flex flex-col gap-[4rem]">
           <h2 className="tracking-wider">Upcoming Event</h2>
-          <div className="flex justify-center gap-[3rem]">
+          <div className="flex justify-center gap-[4rem]">
             <div className="text-center relative">
               <img src={ticketYellow} alt="" className="" />
-              <div className="text-5xl text-white absolute top-[35%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <div className="text-5xl text-white absolute top-[30%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 {days}
               </div>
             </div>
             <div className="text-center relative">
               <img src={ticketBlue} alt="" className="" />
-              <div className="text-5xl text-white absolute top-[35%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <div className="text-5xl text-white absolute top-[30%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 {hours}
               </div>
             </div>
             <div className="text-center relative">
               <img src={ticketPink} alt="" className="" />
-              <div className="text-5xl text-white absolute top-[35%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <div className="text-5xl text-white absolute top-[30%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 {minutes}
               </div>
             </div>
             <div className="text-center relative">
               <img src={ticketPurple} alt="" className="" />
-              <div className="text-5xl text-white absolute top-[35%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <div className="text-5xl text-white absolute top-[30%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 {seconds}
               </div>
             </div>
@@ -212,13 +214,12 @@ const LandingPage = () => {
             amet, consecetur adipiscing elit. Morbi eget duis pretium mauris.
             Ornare viverra pretium eros vitae.
           </p>
-          <Link
-          to={'/home'}
+          <a
             href=""
             className=" py-2 px-5 shadow-md shadow-customBlue rounded-full bg-customBlue text-black"
           >
             See more
-          </Link>
+          </a>
         </div>
       </section>
 

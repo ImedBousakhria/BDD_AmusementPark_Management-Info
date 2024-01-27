@@ -36,6 +36,7 @@ const data = [
   },
 ];
 
+
 const StaffList = () => {
   return (
     <div className="bg-white p-4 flex flex-col h-full w-full rounded-lg ">
