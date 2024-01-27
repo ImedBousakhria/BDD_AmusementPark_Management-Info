@@ -1,46 +1,150 @@
-// Profile.js
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { users } from "../../consts";
+import { zones } from "../../consts";
+import { Select, MenuItem, FormControl, InputLabel } from "@mui/material";
 
 const Profile = () => {
   const { id } = useParams();
   const [userData, setUserData] = useState(null);
+  const [editMode, setEditMode] = useState(false);
+  const [editedUserData, setEditedUserData] = useState({});
 
   useEffect(() => {
-    // Assuming you have a function to fetch user data by ID
-    // Replace the following with your actual API call or data retrieval logic
-    const fetchUserData = async () => {
-      try {
-        // Find the user with the matching ID in the array
-        const user = users.find((user) => user.id === id);
-
-        if (user) {
-          setUserData(user);
-        } else {
-          console.error("User not found");
+    // Function to find user data by ID within zones
+    const findUserData = () => {
+      for (const zone of zones) {
+        for (const team of zone.teams) {
+          for (const staffMember of team.staff) {
+            if (staffMember.id === parseInt(id)) {
+              setUserData({
+                ...staffMember,
+                team: team.name,
+                zone: zone.title,
+              });
+              setEditedUserData({
+                ...staffMember,
+                team: team.name,
+                zone: zone.title,
+              });
+              return;
+            }
+          }
         }
-      } catch (error) {
-        console.error("Error fetching user data:", error);
       }
+      console.error("User not found");
     };
 
-    fetchUserData();
+    findUserData();
   }, [id]);
 
+  const toggleEditMode = () => {
+    setEditMode(!editMode);
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setEditedUserData({ ...editedUserData, [name]: value });
+  };
+
+  const handleTeamChange = (e) => {
+    const team = e.target.value;
+    setEditedUserData({ ...editedUserData, team });
+  };
+
+  const handleZoneChange = (e) => {
+    const zone = e.target.value;
+    setEditedUserData({ ...editedUserData, zone });
+  };
+
+  const saveChanges = () => {
+    setUserData(editedUserData);
+    setEditMode(false);
+  };
+
   return (
-    <div>
-      <h2>User Profile</h2>
-      {userData ? (
-        <div>
-          <p>User ID: {userData.id}</p>
-          <p>User Name: {userData.name}</p>
-          <p>User Email: {userData.email}</p>
-          {/* Render other user profile information */}
-        </div>
-      ) : (
-        <p>User not found</p>
-      )}
+    <div className="flex rounded-lg p-6 bg-white justify-center items-center h-screen w-[90%]">
+      <div className="flex flex-col w-full h-full justify-between">
+        {userData ? (
+          <div className="space-y-16">
+            <h2 className="text-center text-xl font-bold mb-4">User Profile</h2>
+            <p>
+              <span className="font-bold">User ID:</span> {userData.id}
+            </p>
+            <p>
+              <span className="font-bold">User Name:</span>{" "}
+              {editMode ? (
+                <input
+                  type="text"
+                  name="name"
+                  value={editedUserData.name}
+                  onChange={handleInputChange}
+                />
+              ) : (
+                userData.name
+              )}
+            </p>
+            <p>
+              <span className="font-bold">User Email:</span>{" "}
+              {editMode ? (
+                <input
+                  type="email"
+                  name="email"
+                  value={editedUserData.email}
+                  onChange={handleInputChange}
+                />
+              ) : (
+                userData.email
+              )}
+            </p>
+            <p>
+              <span className="font-bold">Team:</span>{" "}
+              {editMode ? (
+                <Select value={editedUserData.team} onChange={handleTeamChange}>
+                  {zones.map((zone) => (
+                      zone.teams.map((team) => (
+                        <MenuItem value={team.name} key={team.name}>
+                          {team.name}
+                        </MenuItem>
+                      ))
+                  ))}
+                </Select>
+              ) : (
+                userData.team
+              )}
+            </p>
+            <p>
+              <span className="font-bold">Zone:</span>{" "}
+              {editMode ? (
+                <Select value={editedUserData.zone} onChange={handleZoneChange}>
+                  {zones.map((zone) => (
+                    <MenuItem value={zone.title} key={zone.title}>
+                      {zone.title}
+                    </MenuItem>
+                  ))}
+                </Select>
+              ) : (
+                userData.zone
+              )}
+            </p>
+            {editMode && (
+              <button
+                className="bg-blue-500 text-white py-2 rounded mt-4 w-max place-self-end px-[4rem]"
+                onClick={saveChanges}
+              >
+                Save
+              </button>
+            )}
+          </div>
+        ) : (
+          <p>User not found</p>
+        )}
+        <button
+          className="bg-blue-500 text-white py-2 rounded mt-4 w-max place-self-end px-[4rem]"
+          onClick={toggleEditMode}
+        >
+          {editMode ? "Cancel" : "Edit"}
+        </button>
+      </div>
     </div>
   );
 };

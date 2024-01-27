@@ -36,7 +36,7 @@ const data = [
   },
 ];
 
-const StaffList = () => {
+const StaffList = ({ team }) => {
   return (
     <div className="bg-white p-4 flex flex-col h-full w-full rounded-lg ">
       <div className="flex justify-between items-center">
@@ -46,7 +46,7 @@ const StaffList = () => {
           see more {">"}
         </Link>
       </div>
-      {users.map((el, i) => (
+      {team?.map((el, i) => (
         <StaffMember element={el} />
       ))}
     </div>

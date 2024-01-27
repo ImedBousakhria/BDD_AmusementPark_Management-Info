@@ -1,9 +1,9 @@
 import React from "react";
 import { MenuItem, Select, InputLabel, FormControl } from "@mui/material";
 
-const Selector = ({ selectCategory, icon, selectedOption, setSelectedOption }) => {
+const Selector = ({ list, selectCategory, icon, selectedOption, setSelectedOption }) => {
   const handleChange = (event) => {
-    setSelectedOption(event.target.value);
+    setSelectedOption(event?.target.value || null);
   };
 
   return (
@@ -17,14 +17,14 @@ const Selector = ({ selectCategory, icon, selectedOption, setSelectedOption }) =
       <Select
         labelId="select-label"
         id="select"
-        value={selectedOption}
+        value={selectedOption || null}
         onChange={handleChange}
         label="Select Option"
       >
         <MenuItem value={null}>None</MenuItem> {/* Option to unselect */}
-        <MenuItem value={1}>Option 1</MenuItem>
-        <MenuItem value={2}>Option 2</MenuItem>
-        <MenuItem value={3}>Option 3</MenuItem>
+        {list?.map((option) => (
+          <MenuItem key={option} value={option}>{option}</MenuItem>
+        ))}
       </Select>
     </FormControl>
   );

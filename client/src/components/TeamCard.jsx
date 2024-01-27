@@ -9,7 +9,7 @@ import EditDeleteActions from "./super/EditDeleteActions";
 
 const icons = [pinkteam, blackteam, redteam, yellowteam, blueteam];
 
-const TeamCard = ({ team }) => {
+const TeamCard = ({ team, onClick }) => {
   const [colorIndex, setColorIndex] = useState(
     Math.floor(Math.random() * icons.length)
   );
@@ -31,7 +31,7 @@ const TeamCard = ({ team }) => {
   };
 
   return (
-    <div className=" relative bg-white flex flex-col items-cente rounded-lg pb-2 px-2 pt-1.5 cursor-pointer ">
+    <div onClick={onClick} className=" relative bg-white flex flex-col items-cente rounded-lg pb-2 px-2 pt-1.5 cursor-pointer ">
       <img
         src={dots}
         onClick={handleMoreDotsClick}
