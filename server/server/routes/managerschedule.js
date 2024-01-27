@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const managerSchedule = require('../controller/managerSchedule');
+const managerScheduleController = require('../controller/managerScheduleController');
 
 
-router.post('/addevent', managerSchedule.create);
-router.delete('/:id_event',managerSchedule.delete);
-router.post('/addtask', managerSchedule.create);
+router.post('/addevent', managerScheduleController.createEvent);
+router.delete('/:id_event',managerScheduleController.deleteEvent);
+router.post('/addtask', managerScheduleController.createTask);
 
 
-module.exports = managerSchedule;
+module.exports = router;

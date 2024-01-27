@@ -4,15 +4,17 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const mysql = require('mysql');
-const authmiddleware = require('./middleware/authmiddleware');
-const managermiddleware = require('./middleware/managermiddleware');
+const authenticateUser = require('./middleware/authmiddleware');
+const isManager = require('./middleware/managermiddleware');
+const restrictToTeam = require('./middleware/teammiddleware');
 const managerteam = require('./server/routes/managerteam');
 const managerschedule = require('./server/routes/managerschedule');
-const user = require('./server/routes/manageruser');
-const db = require('.\models\db.js');
-const usercontroller = require('../controller/user');
-const managerteamController = require('../controller/managerTeam');
-const managerscheduleController = require('../controller/managerSchedule');
+const manageruser = require('./server/routes/manageruser');
+const {pool} = require('./models/db');
+const usercontroller = require('./server/controller/userController');
+
+const managerteamController = require('./server/controller/managerTeamController');
+const managerscheduleController = require('./server/controller/managerScheduleController');
 
 
 
@@ -40,12 +42,7 @@ app.use(express.json()); // New
 
 
  //You don't need the connection here as we have it in userController
- let pool = mysql.createPool({
-   host: process.env.DB_HOST,
-   user: process.env.DB_USER,
-   password: process.env.DB_PASS,
-   database: process.env.DB_NAME
- });
+ 
 // routes
 app.use(managerschedule);
 app.use(managerteam);
