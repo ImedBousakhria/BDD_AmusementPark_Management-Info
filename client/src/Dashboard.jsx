@@ -4,9 +4,17 @@ import AttractionBars from "./components/charts/AttractionBars";
 import VisitsDonut from "./components/charts/VisitsDonut";
 import StatBoard from "./components/StatBoard";
 import StaffList from "./components/StaffList";
-import TeamCard from "./components/TeamCard";
+import { zones } from "./consts";
 
 const Dashboard = () => {
+  const allUsers = zones.reduce((acc, zone) => {
+    zone.teams.forEach((team) => {
+      team.staff.forEach((staff) => {
+        acc.push(staff);
+      });
+    });
+    return acc;
+  }, []);
   return (
     <div className=" flex justify-center">
       {/* Parent wrapper */}
@@ -21,7 +29,7 @@ const Dashboard = () => {
         {/* Second column, to the left */}
         <StatBoard />
         <div className="w-[80%] h-full">
-          <StaffList />
+          <StaffList team={allUsers}  />
         </div>
 
         {/*<TeamCard />*/}

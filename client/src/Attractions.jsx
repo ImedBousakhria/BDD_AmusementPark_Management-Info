@@ -74,6 +74,8 @@ function CustomModal({
   setModalIsOpen,
   currentComments,
 }) {
+
+  
   return (
     <Modal
       style={{

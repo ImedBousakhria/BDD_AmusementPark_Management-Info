@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { zones } from "./consts";
 import TeamCard from "./components/TeamCard";
 import StaffList from "./components/StaffList";
@@ -6,6 +6,12 @@ import ZoneLabel from "./components/super/ZoneLabel";
 import New from "./components/New";
 
 const Staff = () => {
+  const [selectedTeam, setSelectedTeam] = useState(null);
+
+  const handleTeamClick = (team) => {
+    setSelectedTeam(team);
+  };
+
   return (
     <div className="flex min-h-screen w-full gap-[1.5rem]">
       <div className=" w-full">
@@ -19,10 +25,11 @@ const Staff = () => {
             <ZoneLabel number={zoneIndex + 1} />
             <div className="flex flex-wrap gap-[2rem] mt-6">
               {zone.teams.map((team, teamIndex) => (
-                <>
-                  <TeamCard team={team} />
-                  <TeamCard team={team} />
-                </>
+                <TeamCard
+                  key={teamIndex}
+                  team={team}
+                  onClick={() => {handleTeamClick(team.staff)}}
+                />
               ))}
             </div>
           </div>
@@ -30,7 +37,7 @@ const Staff = () => {
       </div>
 
       <div className="basis-[60%] w-[100%]">
-        <StaffList />
+        <StaffList team={selectedTeam} />
       </div>
     </div>
   );

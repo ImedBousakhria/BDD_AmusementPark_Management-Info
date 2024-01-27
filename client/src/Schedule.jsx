@@ -21,67 +21,103 @@ import {
   DragDropProvider,
 } from "@devexpress/dx-react-scheduler-material-ui";
 import Selector from "./components/Selector";
+import { zones } from "./consts";
 const appointments = [
   {
     id: 1,
-    title: "Test Task",
-    startDate: "2024-01-08T11:00Z",
-    endDate: "2024-01-08T15:30Z",
-    color: "#C3C2FF",
-  },
-  {
-    id: 5,
-    title: "Test Task",
-    startDate: "2024-01-09T09:00Z",
-    endDate: "2024-01-09T10:30Z",
+    title: "Task 1",
+    startDate: "2024-01-22T09:00Z",
+    endDate: "2024-01-22T10:30Z",
     color: "#C3C2FF",
   },
   {
     id: 2,
-    title: "Test Task",
-    startDate: "2024-01-10T13:00Z",
-    endDate: "2024-01-10T16:30Z",
+    title: "Task 2",
+    startDate: "2024-01-23T11:00Z",
+    endDate: "2024-01-23T12:30Z",
     color: "#66D1F3",
   },
   {
     id: 3,
-    title: "Test Task",
-    startDate: "2024-01-08T11:00Z",
-    endDate: "2024-01-08T16:00Z",
-    color: "#FBCB77",
-  },
-  {
-    id: 10,
-    title: "Test Task",
-    startDate: "2024-01-09T11:00Z",
-    endDate: "2024-01-09T16:00Z",
-    color: "#FBCB77",
-  },
-  {
-    id: 9,
-    title: "Test Task",
-    startDate: "2024-01-12T11:00Z",
-    endDate: "2024-01-12T16:00Z",
-    color: "#FBCB77",
-  },
-  {
-    id: 4,
-    title: "Test Task",
-    startDate: "2024-01-08T09:00Z",
-    endDate: "2024-01-08T12:30Z",
+    title: "Task 3",
+    startDate: "2024-01-24T13:00Z",
+    endDate: "2024-01-24T14:30Z",
     color: "#F1B7C1",
   },
   {
+    id: 4,
+    title: "Task 4",
+    startDate: "2024-01-25T15:00Z",
+    endDate: "2024-01-25T16:30Z",
+    color: "#FBCB77",
+  },
+  {
+    id: 5,
+    title: "Task 5",
+    startDate: "2024-01-26T09:00Z",
+    endDate: "2024-01-26T10:30Z",
+    color: "#E3E9BE",
+  },
+  {
     id: 6,
-    title: "Test Task",
-    startDate: "2024-01-13T09:00Z",
-    endDate: "2024-01-13T12:30Z",
-    color: "#66D1F3",
+    title: "Task 6",
+    startDate: "2024-01-27T11:00Z",
+    endDate: "2024-01-27T12:30Z",
+    color: "#FFCEAB",
+  },
+  {
+    id: 7,
+    title: "Task 7",
+    startDate: "2024-01-28T13:00Z",
+    endDate: "2024-01-28T14:30Z",
+    color: "#A7EAD1",
   },
 ];
 
+// Helper function to generate appointments for each team in each zone
+/* const generateAppointments = (zones) => {
+  let appointments = [];
+  const currentDate = new Date();
+  const weekStartDate = new Date(currentDate);
+  const weekEndDate = new Date(currentDate);
+  weekEndDate.setDate(weekEndDate.getDate() + 7); // Next week
+
+  zones.forEach((zone) => {
+    zone.teams.forEach((team) => {
+      // Generate appointments for each team
+      team.appointments.forEach((appointment, index) => {
+        const startDate = new Date(weekStartDate);
+        const endDate = new Date(weekEndDate);
+        appointments.push({
+          id: appointments.length + 1,
+          ...appointment,
+          startDate,
+          endDate,
+          color: appointment.color,
+        });
+      });
+    });
+  });
+
+  return appointments;
+}; */
+
 const Schedule = () => {
-  const [state, setState] = useState(appointments);
+  const [state, setState] = useState([]); // Assuming 'zones' constant is available
+
+  const [selectedZone, setSelectedZone] = React.useState(null);
+  const [selectedTeam, setSelectedTeam] = React.useState(null);
+  const handleSelect = () => {
+    const selectedZoneData = zones.find((zone) => zone.title === selectedZone);
+    if (!selectedZoneData) return;
+
+    const selectedTeamData = selectedZoneData.teams.find(
+      (team) => team.name === selectedTeam
+    );
+    if (!selectedTeamData) return;
+
+    setState(selectedTeamData.appointments || []);
+  };
   const selectedColorRef = useRef("#C3C2FF"); // Initial color
 
   const commitChanges = ({ added, changed, deleted }) => {
@@ -207,25 +243,33 @@ const Schedule = () => {
     );
   };
 
-  const [selectedZone, setSelectedZone] = React.useState(null);
-  const [selectedTeam, setSelectedTeam] = React.useState(null);
-
   return (
     <div className="flex flex-col min-h-screen bg-darkBG gap-[2rem]">
       <div className=" w-[50%] flex gap-6 place-self-start ">
         <Selector
+          list={zones.map((zone) => zone.title)}
           selectCategory={"Zone"}
           icon={zone}
           selectedOption={selectedZone}
           setSelectedOption={setSelectedZone}
         />
         <Selector
+          list={
+            selectedZone
+              ? zones
+                  .find((zone) => zone.title === selectedZone)
+                  ?.teams.map((team) => team.name)
+              : []
+          }
           selectCategory={"Team"}
           icon={team}
           selectedOption={selectedTeam}
           setSelectedOption={setSelectedTeam}
         />
-        <button className="bg-creamBlue flex items-center justify-center px-2 rounded-md hover:opacity-70 font-semibold">
+        <button
+          onClick={handleSelect}
+          className="bg-creamBlue flex items-center justify-center px-2 rounded-md hover:opacity-70 font-semibold"
+        >
           Select
         </button>
       </div>
