@@ -7,7 +7,8 @@ import GameDetails from "./GameDetails";
 const GameCard = ({ attraction, onClick }) => {
   const [showActions, setShowActions] = useState(false);
 
-  const handleMoreDotsClick = () => {
+  const handleMoreDotsClick = (event) => {
+    event.stopPropagation();
     setShowActions(!showActions);
   };
 
@@ -21,6 +22,12 @@ const GameCard = ({ attraction, onClick }) => {
     console.log("Delete clicked");
   };
 
+  const handleRatingClick = (event) => {
+    // Prevent click event from propagating to the modal
+    event.stopPropagation();
+    // Your rating click logic here
+  };
+
   return (
     <div className="relative flex flex-col bg-white h-[220px] min-h-max w-[350px] min-w-max rounded-md p-2">
       <img
@@ -31,13 +38,14 @@ const GameCard = ({ attraction, onClick }) => {
       />
       {showActions && (
         <EditDeleteActions
+        onClick={handleMoreDotsClick}
           onEdit={handleEditClick}
           onDelete={handleDeleteClick}
         />
       )}
       <div className="flex w-[100%]">
         <img src={game} alt="" />
-        <GameDetails game={attraction} />
+        <GameDetails game={attraction} click={handleRatingClick} />
       </div>
       <small className="text-customPink font-medium cursor-pointer place-self-end m-3 ">
         See in map

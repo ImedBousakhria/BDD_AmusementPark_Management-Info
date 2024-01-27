@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Rating from "@mui/material/Rating";
 
 
-const GameDetails = ({ game, userType }) => {
+const GameDetails = ({ game, userType, click }) => {
   const [value, setValue] = useState(game.rating);
   const { title, ageRating, status } = game;
 
@@ -30,6 +30,7 @@ const GameDetails = ({ game, userType }) => {
         name="simple-controlled"
         value={value}
         readOnly={userType}
+        onClick={click}
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
