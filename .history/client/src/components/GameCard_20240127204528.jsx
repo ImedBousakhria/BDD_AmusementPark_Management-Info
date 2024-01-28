@@ -34,15 +34,6 @@ const GameCard = ({ attraction, onClick }) => {
     // Your rating click logic here
   };
 
-  const handleSaveChanges = (event) => {
-    event.stopPropagation();
-    // Implement logic to save changes
-    console.log("Changes saved:", editedGame);
-    // You can make API calls or update state as needed
-    // Reset edit mode
-    setEditMode(false);
-  };
-
   // Handler functions for updating edited game data
   const handleTitleChange = (event) => {
     event.stopPropagation(); // Prevent event propagation
@@ -65,7 +56,7 @@ const GameCard = ({ attraction, onClick }) => {
   };
 
   return (
-    <div className="relative flex flex-col bg-white h-[240px] min-h-max w-[350px] min-w-max rounded-md p-2">
+    <div className="relative flex flex-col bg-white h-[220px] min-h-max w-[350px] min-w-max rounded-md p-2">
       <img
         onClick={handleMoreDotsClick}
         src={moredots}
@@ -92,16 +83,6 @@ const GameCard = ({ attraction, onClick }) => {
           />
         ) : (
           <GameDetails game={attraction} click={handleRatingClick} />
-        )}
-      </div>
-      <div className="flex justify-end mt-2">
-        {editMode && (
-          <button
-            onClick={handleSaveChanges}
-            className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2"
-          >
-            Save Changes
-          </button>
         )}
       </div>
       <small className="text-customPink font-medium cursor-pointer place-self-end m-3">

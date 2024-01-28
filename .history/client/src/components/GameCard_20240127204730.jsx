@@ -65,7 +65,7 @@ const GameCard = ({ attraction, onClick }) => {
   };
 
   return (
-    <div className="relative flex flex-col bg-white h-[240px] min-h-max w-[350px] min-w-max rounded-md p-2">
+    <div className="relative flex flex-col bg-white h-[220px] min-h-max w-[350px] min-w-max rounded-md p-2">
       <img
         onClick={handleMoreDotsClick}
         src={moredots}

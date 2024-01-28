@@ -35,7 +35,6 @@ const GameCard = ({ attraction, onClick }) => {
   };
 
   const handleSaveChanges = (event) => {
-    event.stopPropagation();
     // Implement logic to save changes
     console.log("Changes saved:", editedGame);
     // You can make API calls or update state as needed
@@ -65,7 +64,7 @@ const GameCard = ({ attraction, onClick }) => {
   };
 
   return (
-    <div className="relative flex flex-col bg-white h-[240px] min-h-max w-[350px] min-w-max rounded-md p-2">
+    <div className="relative flex flex-col bg-white h-[220px] min-h-max w-[350px] min-w-max rounded-md p-2">
       <img
         onClick={handleMoreDotsClick}
         src={moredots}

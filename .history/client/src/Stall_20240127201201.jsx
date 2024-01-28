@@ -11,7 +11,6 @@ import food3 from "./assets/food/food3.png";
 import food4 from "./assets/food/food4.png";
 import food5 from "./assets/food/food5.png";
 import food6 from "./assets/food/food6.png";
-import { zones } from "./consts";
 
 const Stall = ({ visitor }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -47,7 +46,7 @@ const Stall = ({ visitor }) => {
                       <StallCard attraction={stall} />
                     </div>
                     <div
-                      key={stallIndex}
+                      key={gameIndex}
                       onClick={() => openModal(stall)}
                       className="cursor-pointer"
                     >

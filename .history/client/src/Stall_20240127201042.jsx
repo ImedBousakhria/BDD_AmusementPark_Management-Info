@@ -11,7 +11,6 @@ import food3 from "./assets/food/food3.png";
 import food4 from "./assets/food/food4.png";
 import food5 from "./assets/food/food5.png";
 import food6 from "./assets/food/food6.png";
-import { zones } from "./consts";
 
 const Stall = ({ visitor }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -25,33 +24,35 @@ const Stall = ({ visitor }) => {
   return (
     <div className="flex min-h-screen w-[95%]">
       <div className="w-full text-black">
-        {visitor ? null : <New text={"Stall"} />}
+        {visitor ? null : (
+          <New text={"Stall"} />
+        )}
         <CustomModal
           currentStall={currentStall}
           modalIsOpen={modalIsOpen}
           setModalIsOpen={setModalIsOpen}
         />
 
-        {zones.map((zone, zoneIndex) => (
+{zones.map((zone, zoneIndex) => (
           <div key={zoneIndex} className="mt-16">
             <ZoneLabel number={zoneIndex + 1} />
             <div className="flex flex-wrap gap-[2rem] mt-6">
-              {zone.stalls.map((stall, stallIndex) => {
+              {zone.games.map((game, gameIndex) => {
                 return (
                   <>
                     <div
-                      key={stallIndex}
-                      onClick={() => openModal(stall)}
+                      key={gameIndex}
+                      onClick={() => openModal(game)}
                       className="cursor-pointer"
                     >
-                      <StallCard attraction={stall} />
+                      <StallCard attraction={game} />
                     </div>
                     <div
-                      key={stallIndex}
-                      onClick={() => openModal(stall)}
+                      key={gameIndex}
+                      onClick={() => openModal(game)}
                       className="cursor-pointer"
                     >
-                      <StallCard attraction={stall} />
+                      <StallCard attraction={game} />
                     </div>
                   </>
                 );
@@ -64,9 +65,13 @@ const Stall = ({ visitor }) => {
   );
 };
 
-export default Stall;
+export default Stall
 
-function CustomModal({ currentStall, modalIsOpen, setModalIsOpen }) {
+function CustomModal({
+  currentStall,
+  modalIsOpen,
+  setModalIsOpen,
+}) {
   return (
     <Modal
       style={{

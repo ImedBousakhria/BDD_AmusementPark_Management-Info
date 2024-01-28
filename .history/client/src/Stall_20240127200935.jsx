@@ -4,6 +4,7 @@ import ZoneLabel from "./components/super/ZoneLabel";
 import New from "./components/New";
 import Modal from "react-modal";
 import close from "./assets/icons/Close.svg";
+import { stalls } from "./consts";
 
 import food1 from "./assets/food/food1.png";
 import food2 from "./assets/food/food2.png";
@@ -11,9 +12,8 @@ import food3 from "./assets/food/food3.png";
 import food4 from "./assets/food/food4.png";
 import food5 from "./assets/food/food5.png";
 import food6 from "./assets/food/food6.png";
-import { zones } from "./consts";
 
-const Stall = ({ visitor }) => {
+const StallPage = ({ visitor }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentStall, setCurrentStall] = useState(null);
 
@@ -25,35 +25,28 @@ const Stall = ({ visitor }) => {
   return (
     <div className="flex min-h-screen w-[95%]">
       <div className="w-full text-black">
-        {visitor ? null : <New text={"Stall"} />}
+        {visitor ? null : (
+          <New text={"Stall"} />
+        )}
         <CustomModal
           currentStall={currentStall}
           modalIsOpen={modalIsOpen}
           setModalIsOpen={setModalIsOpen}
         />
 
-        {zones.map((zone, zoneIndex) => (
+        {stalls.map((zone, zoneIndex) => (
           <div key={zoneIndex} className="mt-16">
             <ZoneLabel number={zoneIndex + 1} />
             <div className="flex flex-wrap gap-[2rem] mt-6">
               {zone.stalls.map((stall, stallIndex) => {
                 return (
-                  <>
-                    <div
-                      key={stallIndex}
-                      onClick={() => openModal(stall)}
-                      className="cursor-pointer"
-                    >
-                      <StallCard attraction={stall} />
-                    </div>
-                    <div
-                      key={stallIndex}
-                      onClick={() => openModal(stall)}
-                      className="cursor-pointer"
-                    >
-                      <StallCard attraction={stall} />
-                    </div>
-                  </>
+                  <div
+                    key={stallIndex}
+                    onClick={() => openModal(stall)}
+                    className="cursor-pointer"
+                  >
+                    <StallCard stall={stall} />
+                  </div>
                 );
               })}
             </div>
@@ -64,9 +57,13 @@ const Stall = ({ visitor }) => {
   );
 };
 
-export default Stall;
+export default StallPage;
 
-function CustomModal({ currentStall, modalIsOpen, setModalIsOpen }) {
+function CustomModal({
+  currentStall,
+  modalIsOpen,
+  setModalIsOpen,
+}) {
   return (
     <Modal
       style={{

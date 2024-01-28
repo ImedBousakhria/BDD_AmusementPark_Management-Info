@@ -3,8 +3,7 @@ import game from "../assets/icons/game.svg";
 import moredots from "../assets/icons/moredots.svg";
 import EditDeleteActions from "./super/EditDeleteActions";
 import GameDetails from "./GameDetails";
-import { Rating } from "@mui/material";
-
+import EditDetails from "./EditDetails";
 
 const GameCard = ({ attraction, onClick }) => {
   const [showActions, setShowActions] = useState(false);
@@ -34,38 +33,25 @@ const GameCard = ({ attraction, onClick }) => {
     // Your rating click logic here
   };
 
-  const handleSaveChanges = (event) => {
-    event.stopPropagation();
-    // Implement logic to save changes
-    console.log("Changes saved:", editedGame);
-    // You can make API calls or update state as needed
-    // Reset edit mode
-    setEditMode(false);
-  };
-
   // Handler functions for updating edited game data
   const handleTitleChange = (event) => {
-    event.stopPropagation(); // Prevent event propagation
     setEditedGame({ ...editedGame, title: event.target.value });
   };
 
   const handleStatusChange = (event) => {
-    event.stopPropagation(); // Prevent event propagation
     setEditedGame({ ...editedGame, status: event.target.value });
   };
 
   const handleAgeRatingChange = (event) => {
-    event.stopPropagation(); // Prevent event propagation
     setEditedGame({ ...editedGame, ageRating: event.target.value });
   };
 
   const handleRatingChange = (newValue) => {
-    event.stopPropagation(); // Prevent event propagation
     setEditedGame({ ...editedGame, rating: newValue });
   };
 
   return (
-    <div className="relative flex flex-col bg-white h-[240px] min-h-max w-[350px] min-w-max rounded-md p-2">
+    <div className="relative flex flex-col bg-white h-[220px] min-h-max w-[350px] min-w-max rounded-md p-2">
       <img
         onClick={handleMoreDotsClick}
         src={moredots}
@@ -94,16 +80,6 @@ const GameCard = ({ attraction, onClick }) => {
           <GameDetails game={attraction} click={handleRatingClick} />
         )}
       </div>
-      <div className="flex justify-end mt-2">
-        {editMode && (
-          <button
-            onClick={handleSaveChanges}
-            className="bg-blue-500 text-white px-4 py-2 rounded-md mr-2"
-          >
-            Save Changes
-          </button>
-        )}
-      </div>
       <small className="text-customPink font-medium cursor-pointer place-self-end m-3">
         See in map
       </small>
@@ -112,57 +88,3 @@ const GameCard = ({ attraction, onClick }) => {
 };
 
 export default GameCard;
-
-// EditDetails component with stopPropagation applied
-const EditDetails = ({
-  game,
-  onTitleChange,
-  onStatusChange,
-  onAgeRatingChange,
-  onRatingChange,
-}) => {
-  const stopPropagation = (event) => {
-    event.stopPropagation();
-  };
-
-  return (
-    <div className="flex flex-col p-3">
-      {/* Editable title field */}
-      <input
-        type="text"
-        value={game?.title}
-        onChange={onTitleChange}
-        onClick={stopPropagation} // Prevent propagation on click
-        className="overflow-hidden font-semibold mb-2 border-b border-gray-300 focus:outline-none"
-      />
-      {/* Editable rating field */}
-      <Rating
-        className="flex w-max mb-2"
-        name="simple-controlled"
-        value={game?.rating}
-        onChange={(event, newValue) => onRatingChange(newValue)}
-        onClick={stopPropagation} // Prevent propagation on click
-      />
-      {/* Editable age rating field */}
-      <input
-        type="text"
-        value={game?.ageRating}
-        onChange={onAgeRatingChange}
-        onClick={stopPropagation} // Prevent propagation on click
-        placeholder="Age Rating"
-        className="text-gray-500 mb-2 border-b border-gray-300 focus:outline-none"
-      />
-      {/* Editable status field */}
-      <select
-        value={game?.status}
-        onChange={onStatusChange}
-        onClick={stopPropagation} // Prevent propagation on click
-        className="text-gray-500 focus:outline-none"
-      >
-        <option value="Open">Open</option>
-        <option value="Closed">Closed</option>
-        <option value="Under Maintenance">Under Maintenance</option>
-      </select>
-    </div>
-  );
-};

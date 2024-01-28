@@ -25,14 +25,16 @@ const Stall = ({ visitor }) => {
   return (
     <div className="flex min-h-screen w-[95%]">
       <div className="w-full text-black">
-        {visitor ? null : <New text={"Stall"} />}
+        {visitor ? null : (
+          <New text={"Stall"} />
+        )}
         <CustomModal
           currentStall={currentStall}
           modalIsOpen={modalIsOpen}
           setModalIsOpen={setModalIsOpen}
         />
 
-        {zones.map((zone, zoneIndex) => (
+{zones.map((zone, zoneIndex) => (
           <div key={zoneIndex} className="mt-16">
             <ZoneLabel number={zoneIndex + 1} />
             <div className="flex flex-wrap gap-[2rem] mt-6">
@@ -47,7 +49,7 @@ const Stall = ({ visitor }) => {
                       <StallCard attraction={stall} />
                     </div>
                     <div
-                      key={stallIndex}
+                      key={gameIndex}
                       onClick={() => openModal(stall)}
                       className="cursor-pointer"
                     >
@@ -64,9 +66,13 @@ const Stall = ({ visitor }) => {
   );
 };
 
-export default Stall;
+export default Stall
 
-function CustomModal({ currentStall, modalIsOpen, setModalIsOpen }) {
+function CustomModal({
+  currentStall,
+  modalIsOpen,
+  setModalIsOpen,
+}) {
   return (
     <Modal
       style={{

@@ -14,11 +14,11 @@ import Schedule from "./Schedule.jsx";
 import Dashboard from "./Dashboard.jsx";
 import HomeLayout from "./components/super/HomeLayout.jsx";
 import Attractions from "./Attractions.jsx";
+import Event from "./Event.jsx";
 import Stall from "./Stall.jsx";
 import Staff from "./Staff.jsx";
 import Map from "./Map.jsx";
 import Profile from "./components/super/Profile.jsx";
-import AddEventForm from "./components/AddEventForm.jsx";
 
 const App = () => {
   return (

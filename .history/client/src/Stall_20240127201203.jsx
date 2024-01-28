@@ -47,7 +47,7 @@ const Stall = ({ visitor }) => {
                       <StallCard attraction={stall} />
                     </div>
                     <div
-                      key={stallIndex}
+                      key={gameIndex}
                       onClick={() => openModal(stall)}
                       className="cursor-pointer"
                     >
