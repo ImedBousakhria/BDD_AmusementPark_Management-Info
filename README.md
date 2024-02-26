@@ -1,0 +1,1 @@
+Explore this repository for an all-in-one solution for amusement park management. With Node.js and React, it offers visitors an informative interface and enables staff to manage schedules, games, stalls, and restaurants effortlessly.
