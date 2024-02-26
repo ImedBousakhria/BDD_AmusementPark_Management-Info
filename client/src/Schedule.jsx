@@ -104,8 +104,8 @@ const appointments = [
 
 const Schedule = () => {
   const [state, setState] = useState([]); // Assuming 'zones' constant is available
-
   const [selectedZone, setSelectedZone] = React.useState(null);
+  
   const [selectedTeam, setSelectedTeam] = React.useState(null);
   const handleSelect = () => {
     const selectedZoneData = zones.find((zone) => zone.title === selectedZone);
@@ -117,7 +117,9 @@ const Schedule = () => {
     if (!selectedTeamData) return;
 
     setState(selectedTeamData.appointments || []);
+    console.log(state)
   };
+
   const selectedColorRef = useRef("#C3C2FF"); // Initial color
 
   const commitChanges = ({ added, changed, deleted }) => {

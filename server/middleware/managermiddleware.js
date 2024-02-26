@@ -5,6 +5,7 @@ const { pool } = require('../models/db'); // Adjust to your database setup
 async function isManager(req, res, next) {
   const userId = req.user.id; 
 
+  
   try {
     // query the database to check if the user is a manager 
     const [manager] = await pool.execute('SELECT * FROM managers WHERE user_id = ?', [userId]);

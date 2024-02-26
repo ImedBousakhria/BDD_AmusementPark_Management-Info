@@ -3,6 +3,47 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const {pool} = require('../../models/db');
 
+// feedback
+router.post('/feedback', async (req, res) => {
+  const { email, comment } = req.body;
+  try {
+      // Get a connection from the pool
+      const connection = await pool.getConnection();
+
+      // Insert feedback into the MySQL database
+      const [result] = await connection.execute(
+          'INSERT INTO feedback (email, comment) VALUES (?, ?)',
+          [email, comment]
+      );
+
+      connection.release(); // Release the connection back to the pool
+
+      res.status(201).json({
+          message: 'Feedback created successfully',
+          insertedId: result.insertId
+      });
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
+
+router.get('/feedback', async (req, res) => {
+  try {
+      // Get a connection from the pool
+      const connection = await pool.getConnection();
+
+      // Retrieve feedback from the MySQL database
+      const [rows] = await connection.query('SELECT * FROM feedback');
+
+      connection.release(); // Release the connection back to the pool
+
+      res.status(200).json(rows);
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Internal Server Error' });
+  }
+});
 
 // handle errors
 const handleErrors = (err) => {
@@ -38,7 +79,7 @@ const handleErrors = (err) => {
 // create json web token
 const maxAge = 3 * 24 * 60 * 60;
 const createToken = (id) => {
-  return jwt.sign({ id }, 'louai secret', {
+  return jwt.sign({ id }, 'sara secret', {
     expiresIn: maxAge,
   });
 };

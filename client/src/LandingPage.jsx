@@ -24,7 +24,7 @@ import Footer from "./components/super/Footer";
 AOS.init();
 
 const LandingPage = ({  visitor }) => {
-  const endDate = new Date("2024-01-29T00:00:00"); // Define the end date
+  const endDate = new Date("2024-02-13T00:00:00"); // Define the end date
 
   // State variables to hold countdown values
   const [days, setDays] = useState(0);

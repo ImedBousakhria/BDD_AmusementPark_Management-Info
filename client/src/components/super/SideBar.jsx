@@ -85,7 +85,7 @@ const SideBar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             to="/Attraction"
             icon={game}
             text="Attraction games"
-            currentPath={location.pathname}
+            currentPath={window.location.pathname}
           />
           <SidebarButton
             barState={isSidebarOpen}

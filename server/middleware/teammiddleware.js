@@ -1,4 +1,5 @@
 // middleware/restrictToTeam.js
+const { pool } = require('../models/db'); // Adjust to your database setup
 
 // middleware function to restrict access based on user role and team id
 function restrictToTeam(req, res, next) {
